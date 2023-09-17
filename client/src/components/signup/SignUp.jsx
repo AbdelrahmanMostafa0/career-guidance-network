@@ -22,39 +22,34 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.userType === "student") {
-      if (
-        formData.firstName &&
-        formData.LastName &&
-        formData.email &&
-        formData.password &&
-        confirmPassword === formData.password
-      ) {
-        console.log(formData);
-      }
-    } else if (
+
+    if (
       formData.firstName &&
+      formData.LastName &&
       formData.email &&
       formData.password &&
       confirmPassword === formData.password
     ) {
       console.log(formData);
-    } else {
-      if (!formData.firstName) {
-        setFormError({ ...formError, firstName: true });
-      } else if (formData.userType === "student") {
-        if (!formData.LastName) {
-          setFormError({ ...formError, LastName: true });
-        }
-      } else if (!formData.email) {
-        setFormError({ ...formError, email: true });
-      } else if (!formData.phone) {
-        setFormError({ ...formError, phone: true });
-      } else if (!formData.password) {
-        setFormError({ ...formError, password: true });
-      } else if (!confirmPassword) {
-        setFormError({ ...formError, confirmPassword: true });
-      }
+    }
+
+    if (!formData.password) {
+      setFormError({ ...formError, password: true });
+    }
+    if (!confirmPassword) {
+      setFormError({ ...formError, confirmPassword: true });
+    }
+    if (!formData.phone) {
+      setFormError({ ...formError, phone: true });
+    }
+    if (!formData.email) {
+      setFormError({ ...formError, email: true });
+    }
+    if (!formData.LastName) {
+      setFormError({ ...formError, LastName: true });
+    }
+    if (!formData.firstName) {
+      setFormError({ ...formError, firstName: true });
     }
   };
   return (
@@ -259,9 +254,7 @@ const SignUp = () => {
                   placeholder="Password"
                   type="text"
                   className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-                    formError.password ||
-                    (formError.confirmPassword &&
-                      "border-red-500 focus:border-red-500")
+                    formError.password && "border-red-500 focus:border-red-500"
                   }`}
                 />
                 {formError.password && (
@@ -278,7 +271,7 @@ const SignUp = () => {
                     }
                     setConfirmPassword(e.target.value);
                   }}
-                  placeholder="Last Name"
+                  placeholder="Confirm Password"
                   type="text"
                   className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
                     formError.confirmPassword &&
