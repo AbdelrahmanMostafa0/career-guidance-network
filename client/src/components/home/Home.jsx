@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import Card from "./Card/Card";
 
 export default function Home() {
-  const [howItWork, setHowItWork] = useState("student");
+  const [howItWorks, setHowItWorks] = useState("student");
+
+  function toggle() {
+    setHowItWorks(prev => prev === "student" ? "company" : "student")
+  }
+
   return (
     <main className="home-container">
       <div className="home-inner-container">
@@ -26,21 +31,17 @@ export default function Home() {
           <h1>How It Works</h1>
           <div className="mx-auto border-2 border-darkBlue rounded-full  w-96 flex items-center ">
             <div
-              onClick={() => {
-                setHowItWork("student");
-              }}
+              onClick={toggle}
               className={`h-full  w-full text-center rounded-full cursor-pointer text-xl font-semibold  p-3${
-                howItWork === "student" && " bg-darkBlue text-white "
+                howItWorks === "student" && " bg-darkBlue text-white "
               }`}
             >
               Student
             </div>
             <div
-              onClick={() => {
-                setHowItWork("company");
-              }}
+              onClick={toggle}
               className={`h-full  w-full text-center rounded-full  cursor-pointer text-xl font-semibold  p-3${
-                howItWork === "company" && " bg-darkBlue text-white"
+                howItWorks === "company" && " bg-darkBlue text-white"
               }`}
             >
               Company
