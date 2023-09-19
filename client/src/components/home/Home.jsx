@@ -88,6 +88,22 @@ export default function Home() {
           Lorem ipsum dolor sit amet consectetur. Ipsum faucibus a elementum risus risus. 
           Tincidunt nisl tellus arcuLorem ipsum dolor sit amet consectetur. Ipsum faucibus 
         </PathCard>
+        <PathCard fieldName="Front End Career path">
+          Lorem ipsum dolor sit amet consectetur. Ipsum faucibus a elementum risus risus. 
+          Tincidunt nisl tellus arcuLorem ipsum dolor sit amet consectetur. Ipsum faucibus 
+        </PathCard>
+        <PathCard fieldName="Front End Career path">
+          Lorem ipsum dolor sit amet consectetur. Ipsum faucibus a elementum risus risus. 
+          Tincidunt nisl tellus arcuLorem ipsum dolor sit amet consectetur. Ipsum faucibus 
+        </PathCard>
+        <PathCard fieldName="Front End Career path">
+          Lorem ipsum dolor sit amet consectetur. Ipsum faucibus a elementum risus risus. 
+          Tincidunt nisl tellus arcuLorem ipsum dolor sit amet consectetur. Ipsum faucibus 
+        </PathCard>
+        <PathCard fieldName="Front End Career path">
+          Lorem ipsum dolor sit amet consectetur. Ipsum faucibus a elementum risus risus. 
+          Tincidunt nisl tellus arcuLorem ipsum dolor sit amet consectetur. Ipsum faucibus 
+        </PathCard>
       </section>
     </main>
   );
