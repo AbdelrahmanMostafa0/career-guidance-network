@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Career Guidance Network</title>
       </Head>
       <body>
         <Main />
