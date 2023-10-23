@@ -57,7 +57,8 @@ export default function Home() {
             </Card>
             <Card title="Build Projects">
               Lorem ipsum dolor sit amet consectetur. Ipsum faucibus a elementum
-              risus risus. Tincidunt nisl tellus arcu
+              risus risus. Tincidunt nisl tell{}
+              us arcu
             </Card>
           </div>
         </section>

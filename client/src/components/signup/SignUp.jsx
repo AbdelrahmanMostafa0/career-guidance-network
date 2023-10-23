@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
-
+import "@/styles/blog.module.css";
 const SignUp = () => {
   const [formData, setFormData] = useState({
     userType: "student",
