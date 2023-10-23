@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -35,7 +35,7 @@ body {
   position: relative;
   width: 50%;
   border-radius: 20px;
-  background: linear-gradient(45deg, #0C1C14 -5.53%, #008491 110.78%);
+  background: linear-gradient(45deg, #0c1c14 -5.53%, #008491 110.78%);
   padding: 50px 20px 40px 40px;
   color: #fff;
   display: flex;
@@ -51,11 +51,11 @@ body {
 }
 
 .first-section .part-one a {
-  margin-bottom: .5em;
-  padding: .3em 1.2em;
+  margin-bottom: 0.5em;
+  padding: 0.3em 1.2em;
   border-radius: 12.4px;
-  background: #FFF;
-  color: #272E3F;
+  background: #fff;
+  color: #272e3f;
   font-size: 32px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -81,7 +81,7 @@ body {
   width: 100%;
   padding: 20px 27px;
   border-radius: 20px;
-  background: #7ACDFF;
+  background: #7acdff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -114,7 +114,7 @@ body {
 
 .second-section h1 {
   text-align: center;
-  color: #272E3F;
+  color: #272e3f;
   font-size: 64px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -130,7 +130,7 @@ body {
 
 .card {
   border-radius: 25px;
-  background: #EFEFEF;
+  background: #efefef;
   padding: 55px;
   display: flex;
   flex-direction: column;
@@ -138,7 +138,7 @@ body {
 }
 
 .card h3 {
-  color: #272E3F;
+  color: #272e3f;
   font-size: 32px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -148,14 +148,14 @@ body {
 .card p {
   font-size: 24px;
   font-weight: 300;
-  color: #272E3F;
+  color: #272e3f;
   text-align: center;
 }
 
 .third-section {
   min-height: 65vh;
-  background: #272E3F;
-  color: #E7EDF2;
+  background: #272e3f;
+  color: #e7edf2;
   padding: 80px 50px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -166,7 +166,6 @@ body {
   font-size: 60px;
   font-weight: 700;
   align-self: self-start;
-
 }
 
 .third-section .title span {
@@ -178,7 +177,6 @@ body {
   border-radius: 12px;
   background: #008491;
   align-self: self-start;
-
 }
 
 .path-card h3 {
@@ -197,7 +195,7 @@ body {
   font-size: 14px;
   font-weight: 700;
   border-radius: 50px;
-  padding: .1em 1.8em;
+  padding: 0.1em 1.8em;
 }
 
 .path-card .start-now {
@@ -205,15 +203,6 @@ body {
 }
 
 .path-card .details {
-  border: 1px solid #272E3F;
-  color: #272E3F;
+  border: 1px solid #272e3f;
+  color: #272e3f;
 }
-
-
-
-
-
-
-
-
-
