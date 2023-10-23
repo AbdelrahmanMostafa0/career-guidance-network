@@ -153,15 +153,10 @@ body {
 }
 
 .third-section {
-  border: 2px solid magenta;
   min-height: 65vh;
   background: #272E3F;
   color: #E7EDF2;
   padding: 80px 50px;
-  /* display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 60px;
