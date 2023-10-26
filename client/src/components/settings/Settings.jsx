@@ -16,6 +16,7 @@ export default function Settings() {
     linkedin:"",
     website:""
   })
+  
   function handleChange(event) {
     const { name, type, value } = event.target
     setFormData(prev => {
@@ -25,7 +26,7 @@ export default function Settings() {
       }
     })
   }
-  
+
   return (
     <>
       <div className={styles.deco}>
