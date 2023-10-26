@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 * {
   box-sizing: border-box;
@@ -206,3 +206,4 @@ body {
   border: 1px solid #272e3f;
   color: #272e3f;
 }
+

@@ -1,0 +1,121 @@
+
+/* --------------buttons------------------ */
+
+.btn {
+    padding: 1em 2.5em;
+    margin-top: 1.8em;
+    border-radius: 10px;
+    border: 1px solid rgba(149, 149, 149, 0.37);
+    background: #FFF;
+    font-size: .9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.saveBtn {
+    border: none;
+    background-color: #6FCE99;
+    color: white;
+}
+
+.deleteBtn {
+    color: red;
+    border: 1px solid red;
+}
+
+.btn:hover, .btn:focus {
+    opacity: 0.7;
+}
+/* --------------icons--------------- */
+
+.icon {
+    font-size: 1.5rem;
+    margin: 0 3px -5px 0;
+}
+/* -------------------header-------------------- */
+
+.deco {
+    padding: 4em;
+    background-color: #4FCCC5;
+    position: relative;
+
+}
+
+.header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileImgContainer {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 3px solid white;
+    border-radius: 50%;
+}
+.profileImg {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* -------------------main---------------------- */
+.main {
+    background-color: #f4f4f4;
+    margin-top: 12em;
+    padding: 1em 0;
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: minmax(1em, 1fr) minmax(0px, 500px) minmax(1em, 1fr);
+}
+
+.section {
+    background-color: white;
+    padding: 2em 1em;
+    grid-column: 2 / 02;
+    margin-bottom: 2em;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.section p {
+    font-size: .8rem;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.section form {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.section input {
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.60);
+    background: #FFF;
+    padding: .8em 1em;
+    margin: .5em 0 2em 0;
+    font-size: 1rem;
+}
+
+.section:last-child {
+    text-align: center;
+}
+
+.section:last-child h2 {
+    color: red;
+}
+
+
