@@ -25,7 +25,7 @@ export default function Settings() {
       }
     })
   }
-console.log(formData)
+  
   return (
     <>
       <div className={styles.deco}>
