@@ -39,41 +39,48 @@ export default function Settings() {
       </div>
       <main className={`${styles.main} ${styles.mainGrid}`}>
         <section className={styles.section}>
-          <h2>Personal Info</h2>
-          <p>Info that will represent you in the website like name and user name</p>
+          <div className={styles.info}>
+            <h2>Personal Info</h2>
+            <p>Info that will represent you in the website like name and user name</p>
+          </div>
           <form>
-            <label>Name</label>
-            <input 
+            <label htmlFor="name">Name</label>
+            <input
+              id="name" 
               name="name"
               value={formData.name}
               onChange={handleChange}
-            />
+              />
             <label>Email</label>
             <input
               name="email"
               value={formData.email}
               onChange={handleChange}
-            />
+              />
             <label>Username</label>
             <input
               name="username"
               value={formData.userName}
               onChange={handleChange}
-            />
+              />
             <label>Phone Number</label>
             <input
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
-            />
-            <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
-            <button className={styles.btn}>Cancel</button>
+              />
+            <div className={styles.btnWrapper}>
+              <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
+              <button className={styles.btn}>Cancel</button>
+            </div>
           </form>
         </section>
 
         <section className={styles.section}>
-          <h2>Social Links</h2>
-          <p>Let people know more about you</p>
+          <div className={styles.info}>
+            <h2>Social Links</h2>
+            <p>Let people know more about you</p>
+          </div>
           <form>
             <label><AiFillGithub className={styles.icon} />GitHub</label>
               <input
@@ -93,14 +100,18 @@ export default function Settings() {
               value={formData.website}
               onChange={handleChange}
             />
-            <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
-            <button className={styles.btn}>Cancel</button>
+            <div className={styles.btnWrapper}>
+              <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
+              <button className={styles.btn}>Cancel</button>
+            </div>
           </form>
         </section>
 
         <section className={styles.section}>
-          <h2>Password</h2>
-          <p>Enter your current password to update your password</p>
+          <div className={styles.info}>
+            <h2>Password</h2>
+            <p>Enter your current password to update your password</p>
+          </div>
           <form>
           <label>Current Password</label>
               <input
@@ -120,14 +131,19 @@ export default function Settings() {
               value={formData.confirmNewPassword}
               onChange={handleChange}
             />
-            <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
-            <button className={styles.btn}>Cancel</button>
+            <div className={styles.btnWrapper}>
+              <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
+              <button className={styles.btn}>Cancel</button>
+            </div>
           </form>
         </section>
 
-        <section className={styles.section}>
-          <h2>Delete Account?</h2>
-          <p>Note that if u deleted your account you will lose all your data and progress</p>
+        <section className={`${styles.section} ${styles.deleteSection}`}>
+          <div className={styles.deleteInfo}>
+
+            <h2>Delete Account?</h2>
+            <p>Note that if u deleted your account you will lose all your data and progress</p>
+          </div>
           <button className={`${styles.btn} ${styles.deleteBtn}`}>Delete</button>
         </section>
       </main>
