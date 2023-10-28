@@ -7,7 +7,7 @@ export default function Settings() {
   const [formData, setFormData] = useState({
     name:"",
     email:"",
-    password:"",
+    CurrentPassword:"",
     newPassword:"",
     confirmNewPassword:"",
     userName:"",
@@ -28,7 +28,7 @@ export default function Settings() {
   }
 
   return (
-    <>
+    <div>
       <div className={styles.deco}>
         <header className={styles.header}>
           <div className={styles.profileImgContainer}>
@@ -48,24 +48,31 @@ export default function Settings() {
             <input
               id="name" 
               name="name"
+              type="text"
               value={formData.name}
               onChange={handleChange}
-              />
-            <label>Email</label>
+            />
+            <label htmlFor="email">Email</label>
             <input
+              id="email"  
               name="email"
+              type="email"
               value={formData.email}
               onChange={handleChange}
-              />
-            <label>Username</label>
+            />
+            <label htmlFor="username">Username</label>
             <input
+              id="username"
               name="username"
+              type="text"
               value={formData.userName}
               onChange={handleChange}
               />
-            <label>Phone Number</label>
+            <label htmlFor="phoneNumber">Phone Number</label>
             <input
+              id="phoneNumber"
               name="phoneNumber"
+              type="number"
               value={formData.phoneNumber}
               onChange={handleChange}
               />
@@ -82,21 +89,27 @@ export default function Settings() {
             <p>Let people know more about you</p>
           </div>
           <form>
-            <label><AiFillGithub className={styles.icon} />GitHub</label>
+            <label htmlFor="github"><AiFillGithub className={styles.icon} />GitHub</label>
               <input
+                id="github"
                 name="github"
+                type="url"
                 value={formData.github}
                 onChange={handleChange}
               />
-            <label><AiFillLinkedin className={styles.icon} />LinkedIn</label>
+            <label htmlFor="linkedin"><AiFillLinkedin className={styles.icon} />LinkedIn</label>
             <input
+              id="linkedin"
               name="linkedin"
+              type="url"
               value={formData.linkedin}
               onChange={handleChange}
             />
-            <label><AiOutlineGlobal className={styles.icon} />website</label>
+            <label htmlFor="website"><AiOutlineGlobal className={styles.icon} />website</label>
             <input
+              id="website"
               name="website"
+              type="url"
               value={formData.website}
               onChange={handleChange}
             />
@@ -113,21 +126,27 @@ export default function Settings() {
             <p>Enter your current password to update your password</p>
           </div>
           <form>
-          <label>Current Password</label>
+          <label htmlFor="CurrentPassword">Current Password</label>
               <input
-                name="password"
+                id="CurrentPassword"
+                name="CurrentPassword"
+                type="password"
                 value={formData.password}
                 onChange={handleChange}
               />
-            <label>New Password</label>
+            <label htmlFor="newPassword">New Password</label>
             <input
+              id="newPassword"
               name="newPassword"
+              type="password"
               value={formData.newPassword}
               onChange={handleChange}
             />
-            <label>Confirm New Password</label>
+            <label htmlFor="confirmNewPassword">Confirm New Password</label>
             <input
+              id="confirmNewPassword"
               name="confirmNewPassword"
+              type="password"
               value={formData.confirmNewPassword}
               onChange={handleChange}
             />
@@ -140,13 +159,12 @@ export default function Settings() {
 
         <section className={`${styles.section} ${styles.deleteSection}`}>
           <div className={styles.deleteInfo}>
-
             <h2>Delete Account?</h2>
             <p>Note that if u deleted your account you will lose all your data and progress</p>
           </div>
           <button className={`${styles.btn} ${styles.deleteBtn}`}>Delete</button>
         </section>
       </main>
-    </>
+    </div>
   );
 };
