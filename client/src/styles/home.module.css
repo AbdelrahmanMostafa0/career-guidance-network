@@ -1,0 +1,75 @@
+.mainGrid {
+    display: grid;
+    grid-template-columns: minmax(1em, 1fr) minmax(250px, 600px) minmax(1em, 1fr);
+}
+
+.mainGrid * {
+    grid-column: 2 / -2;
+}
+
+/* ---------------- Hero section -------------------- */
+
+.section {
+    text-align: center;
+
+}
+
+.heroSection img{
+    width: 70%;
+}
+
+.heroSection h1 {
+    color: #008491;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.heroSection p {
+    line-height: 1.6em;
+}
+
+.heroSection a {
+    display: inline-block;
+    background-color: #6FCE99;
+    color: #FFF;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 2.24px;
+    border-radius: 12px;
+    padding: .6em 2.2em;
+    margin-top: 1.4em;
+}
+
+/* --------------- howItWorksSection ------------- */
+
+.howItWorksSection {
+    margin-top: 1em;
+}
+
+.howItWorksSection h2 {
+    color: #008491;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+
+.card {
+    border-bottom: 2px solid #008491;
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 1em 0;
+}
+
+.cardsContainer h3 {
+    font-size: 1.2rem;
+}
+
+.cardsContainer p {
+    font-size: .9rem;
+}
+
+.cardsContainer img {
+    width: 30%;
+}
