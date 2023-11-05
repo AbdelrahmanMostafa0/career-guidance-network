@@ -25,11 +25,11 @@ const PersonalInfo = () => {
         alt="user-image"
         className="max-h-[150px] rounded-full object-cover"
       />
-      <h1 className="capitalize font-semibold text-2xl tracking-wide text-darkBlue">
+      <h1 className="capitalize font-semibold text-2xl tracking-wide text-darkBlue text-center">
         {userData.name}
       </h1>
       <p className="text-lightBlue">{userData.title}</p>
-      <div className="flex justify-center items-center gap-4">
+      <div className="flex  justify-center items-center gap-4">
         <a
           href={userData.linkedin}
           title={userData.linkedin}
@@ -49,15 +49,15 @@ const PersonalInfo = () => {
         </a>
       </div>
       <div className="flex justify-center items-center font-medium gap-4">
-        <div className="flex items-start ">
+        <div className="flex items-center text-center flex-col md:flex-row">
           <PersonIcon />
           <p>{userData.followerCount} Follower</p>
         </div>
-        <div className="flex items-start ">
+        <div className="flex items-center text-center flex-col md:flex-row ">
           <MilitaryTechIcon />
           <p>{userData.badgesCount} Badges</p>
         </div>
-        <div className="flex items-start ">
+        <div className="flex items-center text-center flex-col md:flex-row ">
           <LightbulbOutlinedIcon />
           <p>{userData.projrctsCount} Projects</p>
         </div>
