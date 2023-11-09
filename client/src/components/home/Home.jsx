@@ -13,16 +13,15 @@ export default function Home() {
   }
 
   return (
-    <main className={styles.mainGrid}>
+    <main className={styles.mainContainer}>
       <section className={`${styles.section} ${styles.heroSection}`}>
-        <h1>CGN is Your <br/> way to success</h1>
+        <h1>CGN is Your <span>way to success</span></h1>
         <img src="cgn.png" />
         <p>Empower your career journey with Carrer Guidance Network. Connect, collaborate, and thrive in our vibrant professional community. Your next opportunity awaits here. Join us today!</p>
         <Link href="#">Get Started</Link>
       </section>
 
       <section className={`${styles.section} ${styles.howItWorksSection}`}>
-        {/* <h2>How it Works</h2> */}
         <div className={styles.cardsContainer}>
           <div className={styles.card}>
             <h3>Get a Career</h3>

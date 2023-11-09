@@ -1,13 +1,9 @@
-.mainGrid {
-    display: grid;
-    grid-template-columns: minmax(1em, 1fr) minmax(0, 700px) minmax(1em, 1fr);
-}
-
-.mainGrid * {
-    grid-column: 2 / -2;
-}
 
 /* ---------------- Hero section -------------------- */
+
+.mainContainer {
+    padding: 1em;
+}
 
 .section {
     text-align: center;
@@ -15,12 +11,13 @@
 }
 
 .heroSection img{
-    width: 30%;
+    width: 50%;
+    max-width: 200px;
 }
 
 .heroSection h1 {
     color: #008491;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-style: normal;
     font-weight: 700;
     letter-spacing: 1px;
@@ -38,7 +35,7 @@
     color: #FFF;
     font-weight: 700;
     text-decoration: none;
-    letter-spacing: 2.24px;
+    letter-spacing: 3.24px;
     border-radius: 12px;
     padding: .6em 2.2em;
     margin-top: 1.4em;
@@ -92,29 +89,18 @@
 .careersContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: #7ACDFF;
     border-radius: 12px;
     padding: 1em;
-
-
 }
 
 .career {
-    width: 80%;
-    max-width: 450px;
-    /* margin-bottom: 2em; */
     padding: 1em;
-    /* border-radius: 12px; */
-    /* background-color: #7ACDFF; */
-    /* box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.2); */
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.career:last-child {
-    margin: 0;
 }
 
 .career h3 {
@@ -129,46 +115,61 @@
 /* ------------------ Media Queries --------------- */
 
 @media(min-width:850px) {
-    .mainGrid {
-        grid-template-columns: minmax(3em, 1fr) minmax(0px, 2000px) minmax(3em, 1fr);
+
+    .mainContainer {
+        padding: 3em;
     }
+
     .heroSection {
         text-align: initial;
         display: grid;
-        grid-template-columns: minmax(500px, 1fr) minmax(30px, 100px) minmax(250px, 1fr);
-        grid-template-rows: 2em 120px 120px 50px;
-        min-height: 60vh;
+        grid-template-columns: 1fr 1fr;
     }
 
-    .heroSection h1{
-        grid-row: 2;
+    .heroSection span {
+        display: block;
+    }
+
+    .heroSection h1 {
+        margin-bottom: 0;
+        color: #008491;
+        font-size: 3.2rem;
+        line-height: 1.2em;
+        letter-spacing: 4.48px;
     }
 
     .heroSection p {
-        grid-row: 3;
-        max-width: 40ch;
-    }
-    .heroSection a {
-        grid-row: 4;
-        align-self: center;
-        justify-self: self-start;
+        max-width: 60ch;
+        color: #000;
+        font-size: 1rem;
+        line-height: 1.6em;
+        letter-spacing: 1.4px;
+
     }
 
-    .heroSection h1,
-    .heroSection p,
-    .heroSection a
-    {
-        grid-column: 1 /2;
-        margin: 0;
+    .heroSection a {
+        justify-self: self-start;
+        align-self: self-start;
     }
 
     .heroSection img {
-        min-width: 250px;
-        max-width: 300px;
-        width: 70%;
-        grid-column: 3 / 4;
-        grid-row: 2 / span 2;
-        justify-self: self-end;
+        grid-row: span 3;
+        justify-self: center;
+        align-self: center;
+        min-width: 350px;
+        width: 50%;
+        max-width: unset;
+        margin-left: 4em;
+    }
+
+    .howItWorksSection {
+        /* border: 1px solid magenta; */
+        padding: 1px;
+        margin-top: 3em;
+    }
+
+    .howItWorksSection p {
+        font-size: .8rem;
     }
 
     .cardsContainer {
@@ -193,12 +194,7 @@
     .careersContainer {
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-start;
-    }
-
-    .career {
-        width: 30%;
-        max-width: 400px;
-        height: 300px;
+        align-items: self-start;
+        padding: 2em;
     }
 }
