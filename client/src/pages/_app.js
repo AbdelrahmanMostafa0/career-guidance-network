@@ -1,4 +1,6 @@
+import Layout from "@/components/layout";
 import "@/styles/globals.css";
+import { NextUIProvider } from "@nextui-org/react";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
   subsets: ["latin"],
@@ -8,8 +10,12 @@ const poppins = Poppins({
 });
 export default function App({ Component, pageProps }) {
   return (
-    <main className={poppins.className}>
-      <Component {...pageProps} />
-    </main>
+    <NextUIProvider>
+      <Layout>
+        <main className={poppins.className}>
+          <Component {...pageProps} />
+        </main>
+      </Layout>
+    </NextUIProvider>
   );
 }
