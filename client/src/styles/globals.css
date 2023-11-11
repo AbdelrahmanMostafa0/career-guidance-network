@@ -1,6 +1,6 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -11,7 +11,7 @@ body {
   padding: 0;
 }
 
-@media(min-width: 850px) {
+@media (min-width: 850px) {
   html {
     font-size: 20px;
   }
