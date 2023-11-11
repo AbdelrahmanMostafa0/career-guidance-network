@@ -16,6 +16,12 @@ const MobileMenu = ({ toggleMobMenu }) => {
           href={"/"}
           className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
         >
+          Home
+        </Link>
+        <Link
+          href={"/profile"}
+          className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
+        >
           Profile
         </Link>
         <Link
@@ -25,22 +31,16 @@ const MobileMenu = ({ toggleMobMenu }) => {
           Home
         </Link>
         <Link
-          href={"/"}
+          href={"/settings"}
           className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
         >
-          About
+          settings
         </Link>
         <Link
           href={"/"}
           className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
         >
           Roadmaps
-        </Link>
-        <Link
-          href={"/"}
-          className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
-        >
-          Home
         </Link>
       </div>
     </div>
