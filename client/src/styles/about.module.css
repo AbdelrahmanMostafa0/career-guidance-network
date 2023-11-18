@@ -1,0 +1,77 @@
+
+/* --------------- Intro Section --------------- */
+
+.mainContainer {
+    padding: 1em;
+    text-align: center;
+}
+
+.introSection h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 1em;
+    background: linear-gradient(91deg, #03E8B1 9.65%, #008491 83.83%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.introSection p, .aboutSection p, .purposeSection p {
+    font-size: .9rem;
+    line-height: 1.7rem;
+    text-align: start;
+}
+
+/* --------------- About Section --------------- */
+
+.aboutSection {
+    margin-top: 2.5em;
+}
+
+.aboutSection h2, .purposeSection h2 {
+    color: #008E94;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: .6em;
+}
+
+.aboutSection h3, .purposeSection h3 {
+    color: #7ACDFF;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.aboutSection h3,
+.purposeSection h3
+{
+    text-align: left;
+}
+
+.aboutSection img {
+    display: none;
+}
+
+.missionContainer {
+    margin-bottom: 1.3em;
+}
+
+/* --------------- Purpose Section --------------- */
+
+.purposeSection {
+    margin-top: 2.5em;
+}
+
+.connectingContainer {
+    margin-bottom: 1.3em;
+}
+
+
+.extraText {
+    margin-top: 1em;
+    color: #03E8B1;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1.68px;
+}

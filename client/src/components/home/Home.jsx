@@ -1,9 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import styles from "../../styles/home.module.css";
-import Lottie from "lottie-react";
-// import Card from "./Card/Card";
-// import PathCard from "./PathCard/PathCard";
 
 export default function Home() {
   const [howItWorks, setHowItWorks] = useState("student");
