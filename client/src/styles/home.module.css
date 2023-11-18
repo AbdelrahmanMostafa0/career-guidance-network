@@ -201,6 +201,10 @@
         padding: 2em;
     }
 
+    .card h3, .career h3 {
+        font-size: 1.3rem;
+    }
+
     .card img {
         max-width: initial;
     }
