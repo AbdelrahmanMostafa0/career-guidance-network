@@ -64,10 +64,10 @@ const ExtraData = () => {
           <p className="leading-loose">{data.about}</p>
         </div>
         <div className="p-5 bg-white space-y-2 rounded-lg md:w-5/12">
-          <h3 className="font-bold text-xl">Badges</h3>
+          <h3 className="font-bold text-xl">Contact info</h3>
         </div>
       </div>
-      {/* skills & experiance & contact info */}
+      {/* ------------------------------ skills & experiance & contact info -------------------------- */}
       <div className="flex flex-col  md:flex-row gap-4">
         <div className="p-5 bg-white w-full space-y-2 rounded-lg">
           <h3 className="font-bold text-xl">Top Skills</h3>
@@ -90,9 +90,6 @@ const ExtraData = () => {
               </div>
             );
           })}
-        </div>
-        <div className="p-5 bg-white w-full space-y-2 rounded-lg">
-          <h3 className="font-bold text-xl">Contact info</h3>
         </div>
       </div>
     </section>

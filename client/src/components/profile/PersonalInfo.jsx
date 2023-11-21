@@ -53,10 +53,7 @@ const PersonalInfo = () => {
           <PersonIcon />
           <p>{userData.followerCount} Follower</p>
         </div>
-        <div className="flex items-center text-center flex-col md:flex-row ">
-          <MilitaryTechIcon />
-          <p>{userData.badgesCount} Badges</p>
-        </div>
+
         <div className="flex items-center text-center flex-col md:flex-row ">
           <LightbulbOutlinedIcon />
           <p>{userData.projrctsCount} Projects</p>
