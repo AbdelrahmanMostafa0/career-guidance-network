@@ -8,8 +8,8 @@ const KeyFeatures = () => {
         {" "}
         Our Key Features
       </h3>
-      <div className="flex justify-between items-stretch gap-10">
-        <div className="border w-1/2 p-10 rounded-lg bg-white drop-shadow-md space-y-6">
+      <div className="flex flex-col md:flex-row  justify-between items-stretch gap-10">
+        <div className="border md:w-1/2 p-10 rounded-lg bg-white drop-shadow-md space-y-6">
           <h4 className="text-3xl font-semibold">Connecting Students</h4>
           <ul className="space-y-4">
             <li className="flex items-start gap-2">
@@ -50,7 +50,7 @@ const KeyFeatures = () => {
           </ul>
         </div>
         {/* --------------------------------------------------------------- */}
-        <div className="border w-1/2 p-10 rounded-lg bg-white drop-shadow-md space-y-6">
+        <div className="border md:w-1/2 p-10 rounded-lg bg-white drop-shadow-md space-y-6">
           <h4 className="text-3xl font-semibold">Career Guidance</h4>
           <ul className="space-y-4">
             <li className="flex items-start gap-2">
