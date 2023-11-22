@@ -13,7 +13,7 @@ const MobileMenu = ({ toggleMobMenu }) => {
       </button>
       <div className="flex justify-center items-center mt-10 gap-5 flex-col">
         <Link
-          href={"/"}
+          href={"/profile"}
           className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
         >
           Home
@@ -31,10 +31,10 @@ const MobileMenu = ({ toggleMobMenu }) => {
           Home
         </Link>
         <Link
-          href={"/settings"}
+          href={"/about"}
           className="bg-white text-center p-2 rounded-full w-full text-darkBlue font-bold"
         >
-          settings
+          About
         </Link>
         <Link
           href={"/"}
