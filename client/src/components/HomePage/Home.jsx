@@ -6,7 +6,7 @@ import KeyFeatures from "./sections/KeyFeatures";
 import HowItWorks from "./sections/HowItWorks";
 const Home = () => {
   return (
-    <main className="w-[90%] mx-auto my-5">
+    <main className="w-[95%] sm:w-[90%] mx-auto my-5">
       {/* --------------------- hero Section -------------------- */}
       <HeroSection />
       <KeyFeatures />
