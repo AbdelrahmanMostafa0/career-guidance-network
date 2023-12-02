@@ -10,7 +10,6 @@ export default function Settings() {
     CurrentPassword:"",
     newPassword:"",
     confirmNewPassword:"",
-    userName:"",
     phoneNumber:"",
     github:"",
     linkedin:"",
@@ -60,14 +59,6 @@ export default function Settings() {
               value={formData.email}
               onChange={handleChange}
             />
-            <label htmlFor="username">Username</label>
-            <input
-              id="username"
-              name="username"
-              type="text"
-              value={formData.userName}
-              onChange={handleChange}
-              />
             <label htmlFor="phoneNumber">Phone Number</label>
             <input
               id="phoneNumber"
