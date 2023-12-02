@@ -1,28 +1,15 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 const SignIn = () => {
-  const [formData, setFormData] = useState({});
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (email && password) {
-      setFormData({ ...formData, email: email, password: password });
-      console.log(formData);
-    } else {
-      if (!email) {
-        setEmailError(true);
-      }
-      if (!password) {
-        setPasswordError(true);
-      }
-    }
+  const form = useForm();
+  const { register, handleSubmit, formState } = form;
+  const { errors } = formState;
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
-    <div className="p-4 grid md:grid-cols-2 min-h-[100dvh] ">
+    <div className="p-4 grid md:grid-cols-2 min-h-[80dvh] md:min-h-[88dvh] ">
       {/* form */}
       <div className="col-span-1 w-full h-full px-5 md:px-20 flex flex-col justify-center space-y-10">
         {/* title */}
@@ -39,53 +26,55 @@ const SignIn = () => {
         </div>
         <div>
           <form
-            onSubmit={handleSubmit}
+            noValidate
+            onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col md:max-w-[500px] space-y-5"
           >
             <div className="space-y-2">
               <p className="text-xl">Email</p>
               <input
-                value={email}
-                onChange={(e) => {
-                  if (e.target.value) {
-                    setEmailError(false);
-                  }
-                  setEmail(e.target.value);
-                }}
-                placeholder="Email"
+                name="email"
                 type="email"
+                placeholder="Email"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: " Please enter your email",
+                  },
+                  pattern: {
+                    value:
+                      /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/,
+                    message: "Please enter a valid email",
+                  },
+                })}
                 className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-                  emailError && "border-red-500 focus:border-red-500"
+                  errors.email && "border-red-500 focus:border-red-500"
                 }`}
               />
-              {emailError && (
-                <p className="text-red-500">Please enter your email</p>
-              )}
+              <p className="text-red-500 mt-1">{errors.email?.message}</p>
             </div>
             <div className="space-y-2">
               <p className="text-xl">Password</p>
               <input
-                value={password}
-                onChange={(e) => {
-                  if (e.target.value) {
-                    setPasswordError(false);
-                  }
-                  setPassword(e.target.value);
-                }}
+                name="Password"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "please enter your password",
+                  },
+                })}
                 placeholder="Password"
-                type="text"
+                type="password"
                 className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-                  passwordError && "border-red-500 focus:border-red-500"
+                  errors.password && "border-red-500 focus:border-red-500"
                 }`}
               />
-              {passwordError && (
-                <p className="text-red-500">Please enter your password</p>
-              )}
+              <p className="text-red-500 mt-1">{errors.password?.message}</p>
             </div>
 
             <button
               type="submit"
-              className="bg-lighterGreen p-3 rounded-lg text-white font-bold"
+              className="bg-lighterGreen p-3 rounded-lg text-white font-bold active:scale-[0.99] "
             >
               Sign in
             </button>
@@ -93,14 +82,14 @@ const SignIn = () => {
         </div>
       </div>
       {/*  */}
-      <div className="col-span-1 w-full h-full bg-lightGreen rounded-3xl md:flex flex-col hidden justify-center items-center space-y-3 px-12">
-        <h3 className="md:text-4xl xl:text-5xl text-center whitespace-nowrap text-white font-semibold">
-          Welcome Back !
+      <div className="col-span-1 w-full h-full bg-lightGreen rounded-3xl md:flex flex-col hidden justify-center  space-y-3 px-12">
+        <h3 className="md:text-4xl xl:text-5xl   text-white font-semibold">
+          Welcome Back to CGN
         </h3>
-        <p className="text-xl text-center text-white font-thin w-[80%]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
-          tenetur quidem itaque quae unde quia vitae similique obcaecati aliquam
-          odit.
+        <p className="text-gray-200">Your Journey Continues Here.</p>
+        <p className="text-xl  text-white font-thin w-[80%] leading-relaxed">
+          Hello again! We're thrilled to see you back at CGN. Welcome back to
+          the community that's shaping the future of students like you.
         </p>
       </div>
     </div>

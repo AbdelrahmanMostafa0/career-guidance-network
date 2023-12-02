@@ -1,7 +1,9 @@
-import Home from "@/components/home/Home";
-import About from "@/components/about/About";
-import Settings from "@/components/settings/Settings";
+import Home from "@/components/HomePage/Home";
 
 export default function index() {
-  return <About />;
+  return (
+    <div className="min-h-[90dvh]">
+      <Home />
+    </div>
+  );
 }

@@ -1,6 +1,11 @@
 
 /* --------------buttons------------------ */
 
+
+.label {
+    display: flex;
+}
+
 .btnWrapper {
     display: inherit;
     flex-direction: column;

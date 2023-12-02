@@ -1,4 +1,4 @@
-const { default: SignUp } = require("@/components/signup/SignUp");
+import SignUp from "@/components/signup/SignUp";
 
 const index = () => {
   return <SignUp />;

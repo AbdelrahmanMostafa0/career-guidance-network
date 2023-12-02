@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin, AiOutlineGlobal } from 'react-icons/ai';
-
 import styles from "../../styles/settings.module.css";
 
 export default function Settings() {
@@ -34,7 +34,7 @@ export default function Settings() {
           <div className={styles.profileImgContainer}>
             <img className={styles.profileImg} src="profile.png" />
           </div>
-          <button className={styles.btn}>View Profile</button>
+          <Link href="/profile" className={styles.btn}>View Profile</Link>
         </header> 
       </div>
       <main className={`${styles.main} ${styles.mainGrid}`}>
@@ -89,7 +89,7 @@ export default function Settings() {
             <p>Let people know more about you</p>
           </div>
           <form>
-            <label htmlFor="github"><AiFillGithub className={styles.icon} />GitHub</label>
+            <label className={styles.label} htmlFor="github"><AiFillGithub className={styles.icon} />GitHub</label>
               <input
                 id="github"
                 name="github"
@@ -97,7 +97,7 @@ export default function Settings() {
                 value={formData.github}
                 onChange={handleChange}
               />
-            <label htmlFor="linkedin"><AiFillLinkedin className={styles.icon} />LinkedIn</label>
+            <label className={styles.label} htmlFor="linkedin"><AiFillLinkedin className={styles.icon} />LinkedIn</label>
             <input
               id="linkedin"
               name="linkedin"
@@ -105,7 +105,7 @@ export default function Settings() {
               value={formData.linkedin}
               onChange={handleChange}
             />
-            <label htmlFor="website"><AiOutlineGlobal className={styles.icon} />website</label>
+            <label className={styles.label} htmlFor="website"><AiOutlineGlobal className={styles.icon} />website</label>
             <input
               id="website"
               name="website"
@@ -126,7 +126,7 @@ export default function Settings() {
             <p>Enter your current password to update your password</p>
           </div>
           <form>
-          <label htmlFor="CurrentPassword">Current Password</label>
+          <label className={styles.label} htmlFor="CurrentPassword">Current Password</label>
               <input
                 id="CurrentPassword"
                 name="CurrentPassword"
@@ -134,7 +134,7 @@ export default function Settings() {
                 value={formData.password}
                 onChange={handleChange}
               />
-            <label htmlFor="newPassword">New Password</label>
+            <label className={styles.label} htmlFor="newPassword">New Password</label>
             <input
               id="newPassword"
               name="newPassword"
@@ -142,7 +142,7 @@ export default function Settings() {
               value={formData.newPassword}
               onChange={handleChange}
             />
-            <label htmlFor="confirmNewPassword">Confirm New Password</label>
+            <label className={styles.label} htmlFor="confirmNewPassword">Confirm New Password</label>
             <input
               id="confirmNewPassword"
               name="confirmNewPassword"
