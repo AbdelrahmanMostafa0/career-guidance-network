@@ -1,0 +1,147 @@
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1.5em);
+}
+
+.container {
+    /* background-color: #F4F4F4; */
+    padding: 2em 1.2em;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* ---------------------------------- 
+
+            Header
+
+-----------------------------------*/
+
+.header, .mainContainer {
+    display: grid;
+    grid-template-columns: minmax(0, 600px);
+    place-content: center;
+}
+
+/* ----------------- 
+
+    First Column
+
+------------------*/
+
+.firstCol {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ------ Company Info ------ */
+
+.companyInfo {
+    --flow-space: .5em;
+}
+
+.companyInfo .companyLogo {
+    max-width: 55%;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.companyInfo h1 {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+/* ----- Company Details ------- */
+
+.companyDetails h2, .mainContainer h2{
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.companyDetails h5 {
+    color: #848484;
+    font-size: 1.3rem;
+}
+
+.companyDetails a {
+    color: blue;
+}
+
+/* ------------------- 
+
+    Second Column
+
+---------------------*/
+
+.secondCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.secondCol button {
+    display: inline-block;
+    padding: .7em 2.5em;
+    border-radius: 7px;
+    color: #FFF;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.followBtn {
+    border-radius: 12px;
+    background-color: #6FCE99;
+}
+
+.applyBtn {
+    background-color: #7ACDFF;
+}
+
+/* ---------------------------------- 
+
+            Main container
+
+-----------------------------------*/
+
+.mainContainer {
+    --flow-space: 2.5em;
+    margin-top: 3em;
+    grid-template-areas: 
+        'description'
+        'skills'
+        'roadmap'
+        'similar';
+}
+
+.jobDescriptionSection {
+    grid-area: description;
+    --flow-space: .5em;
+}
+
+.jobDescriptionSection p {
+    text-align: left;
+    line-height: 1.7em;
+}
+
+.jobSkillsSection .groupOfSkills {
+    max-width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-inline: auto;
+    --flow-space: .5em;
+}
+
+.suggestedRoadmap h3 {
+    color: #6FCE99;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.suggestedRoadmap p {
+    max-width: 80%;
+    margin: .5em auto;
+}
