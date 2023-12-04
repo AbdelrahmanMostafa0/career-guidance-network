@@ -53,9 +53,16 @@ export default function ViewJob() {
                         <p>HTML</p>
                         <p>HTML</p>
                         <p>HTML</p>
+                        <p>HTML</p>
+                        <p>HTML</p>
+                        <p>HTML</p>
+                        <p>HTML</p>
+                        <p>HTML</p>
+                        <p>HTML</p>
+                        <p>HTML</p>
                     </div>
                 </section>
-                <section className={`${styles.suggestedRoadmapSection} ${styles.flow}`}>
+                <section className={`${styles.suggestedRoadmapSection}`}>
                     <h2>Suggested Roadmap</h2>
                     <Link href="#">
                         <div className={styles.suggestedRoadmap}>

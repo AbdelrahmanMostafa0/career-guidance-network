@@ -17,6 +17,6 @@ body {
 
 @media(min-width: 1050px) {
   html {
-    font-size: 18px;
+    /* font-size: 18px; */
   }
 }

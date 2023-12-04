@@ -4,7 +4,6 @@
 }
 
 .container {
-    /* background-color: #F4F4F4; */
     padding: 2em 1.2em;
     min-height: 100vh;
     text-align: center;
@@ -43,17 +42,21 @@
     max-width: 55%;
     border-radius: 50%;
     margin: 0 auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .companyInfo h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 /* ----- Company Details ------- */
 
 .companyDetails h2, .mainContainer h2{
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-style: normal;
     font-weight: 600;
 }
@@ -63,8 +66,14 @@
     font-size: 1.3rem;
 }
 
+.companyDetails p, .companyDetails a {
+    font-size: .7rem;
+}
+
 .companyDetails a {
     color: blue;
+    margin: 0;
+    padding: 0;
 }
 
 /* ------------------- 
@@ -124,14 +133,34 @@
     line-height: 1.7em;
 }
 
-.jobSkillsSection .groupOfSkills {
-    max-width: 80%;
+.jobSkillsSection {
+    grid-area: skills;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jobSkillsSection > .groupOfSkills {
+    font-weight: 500;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin-inline: auto;
     --flow-space: .5em;
+}
+
+.groupOfSkills, .suggestedRoadmap {
+    width: 90%;
+}
+
+.suggestedRoadmapSection {
+    grid-area: roadmap;
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestedRoadmap {
+    margin-inline: auto;
 }
 
 .suggestedRoadmap h3 {
@@ -139,9 +168,90 @@
     font-size: 1.3rem;
     font-weight: 600;
     text-decoration: underline;
+    margin-top: .5em;
 }
 
 .suggestedRoadmap p {
-    max-width: 80%;
-    margin: .5em auto;
+    max-width: 90%;
+    margin: .2em auto 0;
+}
+
+@media(min-width: 850px) {
+    .container {
+        background-color: #f4f4f4;
+        text-align: left;
+    }
+
+    .header, .mainContainer {
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .header {
+        background-color: #fff;
+        padding: 2em;        
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .companyInfo {
+        --flow-space: 0;
+        display: flex;
+        align-items: center;
+        gap: 3%;
+    }
+
+    .companyInfo .companyLogo {
+        max-width: 200px;
+        border-radius: 0;
+        margin: unset;
+    }
+
+    .companyDetails {
+        --flow-space: 0;
+        margin-top: 1.5em;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        max-width: 700px;
+    }
+
+    .header .secondCol {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .mainContainer {
+        place-content: unset;
+        grid-template-columns: 2fr 1fr;
+    }
+    
+    .jobDescriptionSection p {
+        max-width: 90%;
+        line-height: 1.9em;
+        letter-spacing: 1px;
+    }
+
+    .jobSkillsSection {
+        align-items: flex-start;
+    }
+
+    .jobSkillsSection > .groupOfSkills,
+    .suggestedRoadmapSection .suggestedRoadmap {
+        background-color: #ffffff;
+        padding: 1em 2em;
+        border-radius: 9px;
+    }
+
+    .jobSkillsSection > .groupOfSkills {
+        justify-content: space-evenly;
+    }
+
+    .suggestedRoadmap {
+        margin: 1em 0;
+    }
+
+    .suggestedRoadmap p {
+        margin: .5em 0 0 0;
+    }
+
 }
