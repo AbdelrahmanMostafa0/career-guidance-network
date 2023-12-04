@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { AiFillGithub, AiFillLinkedin, AiOutlineGlobal } from 'react-icons/ai';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import styles from "../../styles/viewjob.module.css";
 
 export default function ViewJob() {
@@ -48,18 +48,7 @@ export default function ViewJob() {
                 <section className={`${styles.jobSkillsSection} ${styles.flow}`}>
                     <h2>Job Skills</h2>
                     <div className={styles.groupOfSkills}>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
-                        <p>HTML</p>
+                        <p><CheckCircleIcon className={styles.checkIcon} />HTML</p>
                     </div>
                 </section>
                 <section className={`${styles.suggestedRoadmapSection}`}>
