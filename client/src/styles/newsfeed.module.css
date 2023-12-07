@@ -1,0 +1,86 @@
+
+.flow > *:where(:not(:first-child)) {
+    margin-top: var(--flow-space, 1em);
+}
+
+.mainContainer {
+    padding: 2em 1.2em;
+    display: grid;
+    grid-template-columns: minmax(0, 600px);
+    place-content: center;
+}
+
+.feed {
+    /* border: 1px solid magenta; */
+    display: flex;
+    flex-direction: column;
+    --flow-space: .3em;
+}
+
+.companyInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.InnerCompanyInfo {
+    display: flex;
+    align-items: center;
+}
+
+.InnerCompanyInfo .companyLogo {
+    width: 30px;
+    margin-right: 8px;
+}
+
+.InnerCompanyInfo .companyName {
+    font-size: .9rem;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.time {
+    font-size: .7em;
+}
+
+.feed .jobTitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.feed .jobInfo {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.feed .jobInfo span, .time {
+    color: rgb(102, 98, 98);
+}
+
+.btnsContainer {
+    margin-top: 1.5em;
+    align-self: center;
+    display: flex;
+    gap: 10%;
+}
+
+.btn {
+    padding: .3em 1.8em;
+    font-size: .9rem;
+    font-weight: 500;
+    border-radius: 5px;
+}
+
+.detailsBtn {
+    border: 1px solid #6FCE99;
+    color: #6FCE99;
+}
+
+.applyBtn {
+    background-color: #6FCE99;
+    color: #fff;
+}
+
+.jobDescription {
+    line-height: 1.7em;
+}
