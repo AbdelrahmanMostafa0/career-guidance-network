@@ -14,7 +14,7 @@ export default function Newsfeed() {
                             <p className={styles.companyName}>Google</p>
                         </div>
                     </Link>
-                    <p className={styles.time}>2m Ago</p>
+                    <p className={styles.time}>2m ago</p>
                 </div>
                 <h3 className={styles.jobTitle}>Front end</h3>
                 <p className={styles.jobInfo}>Full Time - <span>on site</span></p>

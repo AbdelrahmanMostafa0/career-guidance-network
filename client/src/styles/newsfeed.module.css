@@ -11,7 +11,6 @@
 }
 
 .feed {
-    /* border: 1px solid magenta; */
     display: flex;
     flex-direction: column;
     --flow-space: .3em;
