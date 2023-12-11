@@ -1,18 +1,18 @@
+import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";
 
-const CompanySignUp = () => {
-  const form = useForm({
-    // defaultValues: {
-    //   type: "Company",
-    // },
-  });
-  const { register, handleSubmit, formState } = form;
+const UserSignUpForm = () => {
+  const passwordRegex = /^(?=.*[0-9]).{8,}$/;
+
+  const form = useForm();
+  const { register, handleSubmit, control, formState, watch } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
     console.log(data);
   };
+  const password = watch("password", "");
+  const confirmPassword = watch("confirmPassword", "");
   const isNumeric = (value) => /^\d+$/.test(value);
-  const passwordRegex = /^(?=.*[0-9]).{8,}$/;
   return (
     <div className="my-10 space-y-3 px-2 mt-14 mb-14">
       <h1 className="text-center text-4xl font-semibold text-darkBlue tracking-wider  ">
@@ -29,22 +29,40 @@ const CompanySignUp = () => {
         className="max-w-[700px] mx-auto p-5 py-10 border rounded-md my-10 gap-3 md:grid grid-cols-2"
       >
         <div>
-          <p className="text-lg mb-1">Company Name</p>
+          <p className="text-lg mb-1">First Name</p>
           <input
-            placeholder="Name"
-            name="name"
-            {...register("name", {
+            placeholder="First Name"
+            name="firstName"
+            {...register("firstName", {
               required: {
                 value: true,
-                message: "please enter your company name",
+                message: "please enter your first name",
               },
             })}
             type="text"
             className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-              errors.name && "border-red-500 focus:border-red-500"
+              errors.firstName && "border-red-500 focus:border-red-500"
             }`}
           />
-          <p className="text-red-500 mt-1">{errors.name?.message}</p>
+          <p className="text-red-500 mt-1">{errors.firstName?.message}</p>
+        </div>
+        <div>
+          <p className="text-lg mb-1">Last Name</p>
+          <input
+            placeholder="Last Name"
+            name="lastName"
+            {...register("lastName", {
+              required: {
+                value: true,
+                message: "please enter your last name",
+              },
+            })}
+            type="text"
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+              errors.lastName && "border-red-500 focus:border-red-500"
+            }`}
+          />
+          <p className="text-red-500 mt-1">{errors.lastName?.message}</p>
         </div>
         <div>
           <p className="text-lg mb-1">Email</p>
@@ -53,7 +71,7 @@ const CompanySignUp = () => {
             {...register("email", {
               required: {
                 value: true,
-                message: " Please enter your company email",
+                message: " Please enter your email",
               },
               pattern: {
                 value:
@@ -131,44 +149,38 @@ const CompanySignUp = () => {
           />
           <p className="text-red-500 mt-1">{errors.phoneNumber?.message}</p>
         </div>
+
         <div>
-          <p className="text-lg mb-1">Founded At</p>
+          <p className="text-lg mb-1">Date Of Birth</p>
           <input
-            placeholder="Founded at "
-            name="foundedAt"
-            {...register("foundedAt", {
-              required: "Please enter when your company Founded at",
+            placeholder="Date Of BirthConfirm "
+            name="dateOfBirth"
+            {...register("dateOfBirth", {
+              required: "Please enter your Date Of Birth",
             })}
             type="date"
             className={`border-2 p-[11px]  rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-              errors.foundedAt && "border-red-500 focus:border-red-500"
+              errors.dateOfBirth && "border-red-500 focus:border-red-500"
             }`}
             min="1995-01-01"
           />
-          <p className="text-red-500 mt-1">{errors.foundedAt?.message}</p>
+          <p className="text-red-500 mt-1">{errors.dateOfBirth?.message}</p>
         </div>
-
-        <div className="md:col-span-2">
-          <p className="text-lg mb-1">About</p>
-          <textarea
-            placeholder="About Company"
-            name="about"
-            {...register("about", {
-              required: {
-                value: true,
-                message: "please enter your company About",
-              },
-              validate: {
-                minLength: (value) =>
-                  value.length > 100 || "The About must be atleast 100",
-              },
+        <div>
+          <p className="text-lg mb-1">Gender</p>
+          <select
+            {...register("gender", {
+              required: "Please Choose your gender",
             })}
-            type="text"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen resize-none min-h-[150px] ${
-              errors.about && "border-red-500 focus:border-red-500"
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+              errors.gender && "border-red-500 focus:border-red-500"
             }`}
-          />
-          <p className="text-red-500 mt-1">{errors.about?.message}</p>
+          >
+            <option value="">select a gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <p className="text-red-500 mt-1">{errors.gender?.message}</p>
         </div>
         <button className="w-full col-span-2 rounded-lg px-4 font-bold text-white bg-lighterGreen py-3 active:scale-[0.99] duration-100">
           Sign Up
@@ -177,4 +189,4 @@ const CompanySignUp = () => {
     </div>
   );
 };
-export default CompanySignUp;
+export default UserSignUpForm;

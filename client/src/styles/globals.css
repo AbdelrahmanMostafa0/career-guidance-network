@@ -4,19 +4,11 @@
 
 *,
 *::after,
-*::before 
-{
+*::before {
   box-sizing: border-box;
 }
-
 
 body {
   margin: 0;
   padding: 0;
-}
-
-@media(min-width: 1050px) {
-  html {
-    /* font-size: 18px; */
-  }
 }
