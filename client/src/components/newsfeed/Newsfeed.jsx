@@ -52,8 +52,8 @@ export default function Newsfeed() {
                         <p className={styles.jobInfo}>Full Time - <span>on site</span></p>
                         <p className={styles.jobDescription}>Lorem ipsum dolor sit amet consectetur. Nibh ac facilisis senectus tristique. Pretium nunc quam facilisis nulla. Proin pretium a mattis parturient nunc. Eget libero morbi malesuada lectus quisque amet molestie </p>
                         <div className={styles.btnsContainer}>
-                            <button className={`${styles.btn} ${styles.detailsBtn}`}>Details</button>
-                            <button className={`${styles.btn} ${styles.applyBtn}`}>Apply</button>
+                            <Link href="#" className={`${styles.btn} ${styles.detailsBtn}`}>Details</Link>
+                            <Link href="#" className={`${styles.btn} ${styles.applyBtn}`}>Apply</Link>
                         </div>
                     </div>
                 </div>
