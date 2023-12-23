@@ -1,13 +1,38 @@
+// import { userLogin } from "@/api/userApis";
+import { getUserData } from "@/redux/features/user/userDataSlice";
+import { userLogin } from "@/redux/features/user/userLoginSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignIn = () => {
+  const router = useRouter();
+  const status = useSelector((state) => state.login.status);
   const form = useForm();
+  const dispatch = useDispatch();
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
-  const onSubmit = (data) => {
-    console.log(data);
+  const userData = useSelector((state) => state.userData.userData);
+  const onSubmit = async (data) => {
+    // userLogin(data);
+
+    dispatch(userLogin(data));
   };
+  useEffect(() => {
+    if (status === "succeeded" && localStorage.getItem("token")) {
+      dispatch(getUserData());
+      router.push("/");
+    }
+    // console.log(status);
+  }, [status]);
+
+  useEffect(() => {
+    if (userData) {
+      router.push("/");
+    }
+  }, [userData]);
   return (
     <div className="p-4 grid md:grid-cols-2 min-h-[80dvh] md:min-h-[88dvh] ">
       {/* form */}

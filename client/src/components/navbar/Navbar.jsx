@@ -1,8 +1,11 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MobileMenu from "./MobileMenu";
 import { Notifications } from "@mui/icons-material";
+import { useDispatch } from "react-redux";
+import { getUserData, logoutUser } from "@/redux/features/user/userDataSlice";
+import { Avatar } from "@mui/material";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -15,14 +18,26 @@ const Navbar = () => {
   const toggleState = (setState) => {
     setState((prevState) => !prevState);
   };
+  const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     dispatch(getUserData());
+  //   }
+  // }, []);
   return (
     <nav className="px-5  py-5  border-b relative">
       <button
-        className="absolute top-0 left-0 text-xs opacity-10"
+        className="absolute top-0 left-0 text-xs "
         onClick={() => toggleState(setSignedIn)}
       >
         signin
+      </button>
+      <button
+        className="absolute top-3 left-0 text-xs text-red-500"
+        onClick={() => dispatch(logoutUser())}
+      >
+        logout
       </button>
       {/* logo and links */}
       <div className="md:w-[90%] flex items-center justify-between mx-auto">
@@ -89,11 +104,7 @@ const Navbar = () => {
                 )}
               </div>{" "}
               <Link href={"/profile"}>
-                <img
-                  src="/user.jpg"
-                  alt=""
-                  className="w-14 h-14 object-cover rounded-full border-4 border-lightGreen"
-                />
+                <Avatar src="/handshake.jpg" />
               </Link>
             </>
           )}

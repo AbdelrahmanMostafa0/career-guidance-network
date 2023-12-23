@@ -14,19 +14,11 @@ const CompanySignUp = () => {
   const isNumeric = (value) => /^\d+$/.test(value);
   const passwordRegex = /^(?=.*[0-9]).{8,}$/;
   return (
-    <div className="my-10 space-y-3 px-2 mt-14 mb-14">
-      <h1 className="text-center text-4xl font-semibold text-darkBlue tracking-wider  ">
-        Join us Right Now
-      </h1>
-      <p className="text-xl leading-relaxed   max-w-[700px] mx-auto text-center">
-        Welcome to CGN, where we empower students to forge their path to
-        success! 🚀 Join our growing community of ambitious individuals and
-        unlock a world of opportunities
-      </p>
+    <div className="my- space-y-3 px-2  mb-14">
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-[700px] mx-auto p-5 py-10 border rounded-md my-10 gap-3 md:grid grid-cols-2"
+        className="max-w-[700px] mx-auto p-5 py-10 border rounded-md  gap-3 md:grid grid-cols-2"
       >
         <div>
           <p className="text-lg mb-1">Company Name</p>

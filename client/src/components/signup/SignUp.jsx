@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import StudentSignUp from "./StudentSignUp";
 import CompanySignUp from "./CompanySignUp";
+import UserSignUpForm from "./UserSignUpForm";
 
 const SignUp = () => {
   const form = useForm();
@@ -12,24 +13,34 @@ const SignUp = () => {
   };
 
   return (
-    <div className="my-10">
-      <h1 className="text-center text-5xl font-bold underline">
-        Choose your Path
+    <div className="my-10 container px-2 mx-auto space-y-4">
+      {/* <h1 className="text-center text-4xl font-semibold text-darkBlue tracking-wider  ">
+        Join us Right Now
       </h1>
-      <div className="flex md:flex-row flex-col justify-center items-center min-h-[75dvh] gap-10 md:gap-24 px-3">
-        <Link
-          href={"/signup/company"}
-          className="text-3xl text-center  text-white p-10 w-full md:w-96 md:h-96 flex items-center font-semibold justify-center rounded-xl  hover:-translate-y-3 bg-lightGreen hover:drop-shadow-lg duration-150 hover:bg-darkBlue hover:text-white"
+      <p className="text-xl leading-relaxed   max-w-[700px] mx-auto text-center">
+        Welcome to CGN, where we empower students to forge their path to
+        success! 🚀 Join our growing community of ambitious individuals and
+        unlock a world of opportunities
+      </p> */}
+      <div className="flex justify-center mx-auto gap-3 px-2 md:px-0 items-center max-w-[700px]">
+        <button
+          onClick={() => ChangeUserType("student")}
+          className={`px-5 w-full py-2 text-xl border-2 text-lightGreen border-lightGreen font-semibold duration-150 rounded-md ${
+            userType === "student" && "bg-lightGreen text-white"
+          }`}
+        >
+          student
+        </button>
+        <button
+          onClick={() => ChangeUserType("company")}
+          className={`px-5 w-full py-2 text-xl border-2 text-lightGreen border-lightGreen font-semibold duration-150 rounded-md ${
+            userType === "company" && "bg-lightGreen text-white"
+          }`}
         >
           Company
-        </Link>
-        <Link
-          href={"/signup/user"}
-          className="text-3xl text-center  text-white p-10 w-full md:w-96 md:h-96 flex items-center font-semibold justify-center rounded-xl  hover:-translate-y-3 bg-lightGreen hover:drop-shadow-lg duration-150 hover:bg-darkBlue hover:text-white"
-        >
-          User
-        </Link>
+        </button>
       </div>
+      {userType === "student" ? <UserSignUpForm /> : <CompanySignUp />}
     </div>
   );
 };

@@ -1,32 +1,55 @@
+import { getUserData } from "@/redux/features/user/userDataSlice";
+import { userRegister } from "@/redux/features/user/userRegisterSlice";
 import { DevTool } from "@hookform/devtools";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 const UserSignUpForm = () => {
   const passwordRegex = /^(?=.*[0-9]).{8,}$/;
+  const router = useRouter();
+  const dispatch = useDispatch();
 
-  const form = useForm();
+  const status = useSelector((state) => state.register.status);
+  const userData = useSelector((state) => state.userData.userData);
+  const form = useForm({
+    defaultValues: {
+      city: 1,
+      title: 1,
+    },
+  });
   const { register, handleSubmit, control, formState, watch } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
     console.log(data);
+    data.city = 1;
+    data.title = 1;
+
+    // userRgister(data);
+    dispatch(userRegister(data));
   };
+  useEffect(() => {
+    if (userData) {
+      router.push("/");
+    }
+  }, [userData]);
+  useEffect(() => {
+    if (status === "succeeded") {
+      // dispatch(getUserData());
+      router.push("/signin");
+    }
+    // console.log(status);
+  }, [status]);
   const password = watch("password", "");
   const confirmPassword = watch("confirmPassword", "");
   const isNumeric = (value) => /^\d+$/.test(value);
   return (
-    <div className="my-10 space-y-3 px-2 mt-14 mb-14">
-      <h1 className="text-center text-4xl font-semibold text-darkBlue tracking-wider  ">
-        Join us Right Now
-      </h1>
-      <p className="text-xl leading-relaxed   max-w-[700px] mx-auto text-center">
-        Welcome to CGN, where we empower students to forge their path to
-        success! 🚀 Join our growing community of ambitious individuals and
-        unlock a world of opportunities
-      </p>
+    <div className=" space-y-3 px-2 mt- mb-14">
       <form
         noValidate
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-[700px] mx-auto p-5 py-10 border rounded-md my-10 gap-3 md:grid grid-cols-2"
+        className="max-w-[700px] mx-auto p-5 py-10 border rounded-md  gap-3 md:grid grid-cols-2"
       >
         <div>
           <p className="text-lg mb-1">First Name</p>
