@@ -1,5 +1,5 @@
 import ViewJob from "@/components/veiwjob/ViewJob";
 const ViewJobPage = () => {
-  return <ViewJobPage />;
+  return <ViewJob />;
 };
 export default ViewJobPage;
