@@ -3,6 +3,7 @@ import Footer from "./footer/Footer";
 import Navbar from "./navbar/Navbar";
 import { useEffect } from "react";
 import { getUserData } from "@/redux/features/user/userDataSlice";
+import ScrollToTopButton from "./ScrollToTopButton";
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       {children}
+      <ScrollToTopButton />
       <Footer />
     </>
   );

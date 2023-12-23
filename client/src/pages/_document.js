@@ -1,3 +1,4 @@
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Navbar from "@/components/navbar/Navbar";
 import { getUserData } from "@/redux/features/user/userDataSlice";
 import { Html, Head, Main, NextScript } from "next/document";
@@ -15,7 +16,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head></Head>
-      <body>
+      <body className="relative">
         <Main />
         <NextScript />
       </body>
