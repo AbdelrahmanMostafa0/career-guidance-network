@@ -38,9 +38,12 @@ const ExtraData = () => {
         >
           <h3 className="font-bold text-xl">Tags</h3>
           <div className="flex flex-wrap justify-start items-center gap-2">
-            {data.tags.map((tag) => {
+            {data.tags.map((tag, index) => {
               return (
-                <div className="bg-gray-100 py-1 px-3 rounded-lg font-semibold">
+                <div
+                  key={index}
+                  className="bg-gray-100 py-1 px-3 rounded-lg font-semibold"
+                >
                   {tag}
                 </div>
               );
@@ -74,9 +77,9 @@ const ExtraData = () => {
         </div>
         <div className="p-5 bg-white w-full  space-y-2 rounded-lg">
           <h3 className="font-bold text-xl">Experience</h3>
-          {data.experiance.map((exp) => {
+          {data.experiance.map((exp, index) => {
             return (
-              <div>
+              <div key={index}>
                 <h4 className="font-bold">
                   <span className="capitalize">{exp.title}</span>
                   {"  "}{" "}
