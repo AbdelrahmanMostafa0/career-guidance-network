@@ -10,7 +10,7 @@ const index = () => {
     if (!localStorage.getItem("token")) {
       router.push("/");
     }
-  });
+  }, []);
   return userData ? <Settings /> : <div className="min-h-[90dvh]"></div>;
 };
 export default index;

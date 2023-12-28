@@ -1,4 +1,4 @@
-import { getUserData } from "@/redux/features/user/userDataSlice";
+import { getUserData } from "@/redux/features/user/userProfileSlice";
 import { userRegister } from "@/redux/features/user/userRegisterSlice";
 import { DevTool } from "@hookform/devtools";
 import { useRouter } from "next/router";
@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-const UserSignUpForm = () => {
+const UserSignUpForm = ({ titles, cities }) => {
   const passwordRegex = /^(?=.*[0-9]).{8,}$/;
   const router = useRouter();
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const UserSignUpForm = () => {
   const form = useForm({
     defaultValues: {
       city: 1,
-      title: 1,
+      // title: 1,
     },
   });
   const { register, handleSubmit, control, formState, watch } = form;
@@ -24,7 +24,7 @@ const UserSignUpForm = () => {
   const onSubmit = (data) => {
     console.log(data);
     data.city = 1;
-    data.title = 1;
+    // data.title = 1;
 
     // userRgister(data);
     dispatch(userRegister(data));
@@ -205,7 +205,26 @@ const UserSignUpForm = () => {
           </select>
           <p className="text-red-500 mt-1">{errors.gender?.message}</p>
         </div>
-        <button className="w-full col-span-2 rounded-lg px-4 font-bold text-white bg-lighterGreen py-3 active:scale-[0.99] duration-100">
+        <div>
+          <p className="text-lg mb-1">Title</p>
+          <select
+            {...register("title", {
+              required: "Please Choose your title",
+            })}
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+              errors.title && "border-red-500 focus:border-red-500"
+            }`}
+          >
+            <option value="">select a title</option>
+            {titles?.map((title) => {
+              return <option value={title.id}>{title.name}</option>;
+            })}
+            {/* <option value="male">Male</option>
+            <option value="female">Female</option> */}
+          </select>
+          <p className="text-red-500 mt-1">{errors.title?.message}</p>
+        </div>
+        <button className="w-full mt-5 col-span-2 rounded-lg px-4 font-bold text-white bg-lighterGreen py-3 active:scale-[0.99] duration-100">
           Sign Up
         </button>
       </form>

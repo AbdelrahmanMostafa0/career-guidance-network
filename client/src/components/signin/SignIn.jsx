@@ -1,5 +1,5 @@
 // import { userLogin } from "@/api/userApis";
-import { getUserData } from "@/redux/features/user/userDataSlice";
+import { getUserData } from "@/redux/features/user/userProfileSlice";
 import { userLogin } from "@/redux/features/user/userLoginSlice";
 import Link from "next/link";
 import { useRouter } from "next/router";

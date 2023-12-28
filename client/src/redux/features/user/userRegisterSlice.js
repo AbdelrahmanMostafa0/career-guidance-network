@@ -18,17 +18,12 @@ export const userRegister = createAsyncThunk(
           },
         }
       );
-      // localStorage.setItem("token", response.data.token);
-      // localStorage.setItem("isAuth", true);
-      // console.log(response.data);
-      // token = JSON.parse(`${response.data.token}`);
-      // console.log(token);
     } catch (error) {
-      // console.log(error.response.data);
       throw error.response.data;
     }
   }
 );
+
 const registerSlice = createSlice({
   name: "login",
   initialState,

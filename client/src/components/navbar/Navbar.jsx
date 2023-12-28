@@ -4,7 +4,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MobileMenu from "./MobileMenu";
 import { Notifications } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "@/redux/features/user/userDataSlice";
+import { logoutUser } from "@/redux/features/user/userProfileSlice";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";

@@ -1,16 +1,31 @@
-import Link from "next/link";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import StudentSignUp from "./StudentSignUp";
+import { useEffect, useState } from "react";
 import CompanySignUp from "./CompanySignUp";
 import UserSignUpForm from "./UserSignUpForm";
+import { getCities, getTitles } from "@/api/userApis";
+import { useDispatch, useSelector } from "react-redux";
 
 const SignUp = () => {
-  const form = useForm();
   const [userType, setUserType] = useState("student");
   const ChangeUserType = (type) => {
     setUserType(type);
   };
+  const [titles, setTitles] = useState();
+  const [cities, setCities] = useState();
+  const dispatch = useDispatch();
+  const getAllCities = async () => {
+    const cities = await getCities();
+    setCities(cities);
+  };
+  const getAllTitles = async () => {
+    const titles = await getTitles();
+    setTitles(titles);
+  };
+  useEffect(() => {
+    getAllCities();
+    getAllTitles();
+  }, []);
+  console.log("titles", titles);
+  console.log("cities", cities);
 
   return (
     <div className="my-10 container px-2 mx-auto space-y-4">
@@ -40,7 +55,11 @@ const SignUp = () => {
           Company
         </button>
       </div>
-      {userType === "student" ? <UserSignUpForm /> : <CompanySignUp />}
+      {userType === "student" ? (
+        <UserSignUpForm titles={titles} cities={cities} />
+      ) : (
+        <CompanySignUp />
+      )}
     </div>
   );
 };
