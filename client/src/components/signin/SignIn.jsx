@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from "../ui/button";
 
 const SignIn = () => {
   const router = useRouter();
@@ -97,17 +98,12 @@ const SignIn = () => {
               <p className="text-red-500 mt-1">{errors.password?.message}</p>
             </div>
 
-            <button
-              type="submit"
-              className="bg-lighterGreen p-3 rounded-lg text-white font-bold active:scale-[0.99] "
-            >
-              Sign in
-            </button>
+            <Button className="col-span-2 h-12 w-full mt-4">Sign in</Button>
           </form>
         </div>
       </div>
       {/*  */}
-      <div className="col-span-1 w-full h-full bg-lightGreen rounded-3xl md:flex flex-col hidden justify-center  space-y-3 px-12">
+      <div className="col-span-1 w-full h-full bg-darkBlue rounded-3xl md:flex flex-col hidden justify-center  space-y-3 px-12">
         <h3 className="md:text-4xl xl:text-5xl   text-white font-semibold">
           Welcome Back to CGN
         </h3>

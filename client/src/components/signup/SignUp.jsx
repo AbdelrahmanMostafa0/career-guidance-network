@@ -3,6 +3,7 @@ import CompanySignUp from "./CompanySignUp";
 import UserSignUpForm from "./UserSignUpForm";
 import { getCities, getTitles } from "@/api/userApis";
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
 
 const SignUp = () => {
   const [userType, setUserType] = useState("student");
@@ -38,22 +39,22 @@ const SignUp = () => {
         unlock a world of opportunities
       </p> */}
       <div className="flex justify-center mx-auto gap-3 px-2 md:px-0 items-center max-w-[700px]">
-        <button
+        <Button
           onClick={() => ChangeUserType("student")}
-          className={`px-5 w-full py-2 text-xl border-2 text-lightGreen border-lightGreen font-semibold duration-150 rounded-md ${
-            userType === "student" && "bg-lightGreen text-white"
+          className={`border-2  border-darkBlue w-full text-white hover:text-white ${
+            userType !== "student" && "bg-transparent text-darkBlue "
           }`}
         >
           student
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => ChangeUserType("company")}
-          className={`px-5 w-full py-2 text-xl border-2 text-lightGreen border-lightGreen font-semibold duration-150 rounded-md ${
-            userType === "company" && "bg-lightGreen text-white"
+          className={`border-2  border-darkBlue w-full text-white hover:text-white ${
+            userType !== "company" && "bg-transparent text-darkBlue "
           }`}
         >
           Company
-        </button>
+        </Button>
       </div>
       {userType === "student" ? (
         <UserSignUpForm titles={titles} cities={cities} />

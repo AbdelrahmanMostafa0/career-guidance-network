@@ -5,24 +5,28 @@ import Projects from "./Projects";
 import UserInfo from "./profileCompnents/UserInfo";
 import UserLinks from "./profileCompnents/UserLinks";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { DotWave } from "@uiball/loaders";
 import { LeapFrog } from "@uiball/loaders";
 import { ThreeBody } from "@uiball/loaders";
 import { ChaoticOrbit } from "@uiball/loaders";
+import { getSkills } from "@/redux/features/user/SkillsSlice";
 
 const Profile = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   const userData = useSelector((state) => state.userData.userData);
-  console;
+  // console;
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       router.push("/");
     }
-  });
+    dispatch(getSkills());
+  }, []);
+
   return (
     <div className="bg-gray-100">
-      <div className="  mx-[20px] md:mx-[120px] min-h-[100dvh] py-10 space-y-4  gap-4  ">
+      <div className="md:w-[90%]  mx-[10px] md:mx-auto   min-h-[100dvh] py-5 space-y-4  gap-4  ">
         {/* <UserInfo className="col-span-1" />
       <UserLinks className="col-span-2" /> */}
         {userData ? (

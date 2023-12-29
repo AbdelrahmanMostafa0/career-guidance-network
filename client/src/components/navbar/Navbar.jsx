@@ -8,6 +8,8 @@ import { logoutUser } from "@/redux/features/user/userProfileSlice";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
+import UserMenu from "./UserMenu";
+import SideBar from "./SideBar";
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [signedIn, setSignedIn] = useState(false);
@@ -33,18 +35,6 @@ const Navbar = () => {
   const userData = useSelector((state) => state.userData.userData);
   return (
     <nav className="px-5  py-5  border-b  bg-white z-50 sticky top-0">
-      {/* <button
-        className="absolute top-0 left-0 text-xs "
-        onClick={() => toggleState(setSignedIn)}
-      >
-        signin
-      </button>
-      <button
-        className="absolute top-3 left-0 text-xs text-red-500"
-        onClick={() => dispatch(logoutUser())}
-      >
-        logout
-      </button> */}
       {/* logo and links */}
       <div className="md:w-[90%] flex items-center justify-between mx-auto">
         <div className="flex items-center gap-10">
@@ -91,48 +81,32 @@ const Navbar = () => {
           ) : (
             <>
               <div className="relative">
-                <button onClick={toggleUserMenu}>
-                  <img
-                    src={userData.profileImgUrl || "/avatar.jpg"}
-                    className="w-12 rounded-full h-12 object-cover"
-                    alt=""
-                  />
-                  {showUserMenu && (
-                    <div className="bg-white drop-shadow-md fade-in rounded-lg w-52 border absolute -right-10 my-1 p-3 z-50">
-                      <h3 className="font-bold text-start text-xl capitalize">
-                        {userData.firstName + " " + userData.lastName}
-                      </h3>
-                      <Link
-                        href={"/profile"}
-                        className="p-1 rounded-lg bg-slate-200 my-1 line-clamp-1 "
-                      >
-                        <AccountCircleIcon /> Profile
-                      </Link>
-                      <Link
-                        href={"/settings"}
-                        className="p-1 rounded-lg bg-slate-200 my-1 line-clamp-1 "
-                      >
-                        <SettingsIcon /> Settings
-                      </Link>
-                      <button
-                        onClick={() => dispatch(logoutUser())}
-                        className="p-1 w-full rounded-lg bg-red-400 text-white my-1 line-clamp-1 "
-                      >
-                        <LogoutIcon /> Log out
-                      </button>
-                    </div>
-                  )}
-                </button>
+                <UserMenu
+                  title={userData.firstName + " " + userData.lastName}
+                  openBtn={
+                    <img
+                      src={userData.profileImgUrl || "/avatar.jpg"}
+                      className="w-12 rounded-full h-12 object-cover"
+                      alt=""
+                    />
+                  }
+                />
               </div>
             </>
           )}
 
-          <button
-            className="block md:hidden"
-            onClick={() => toggleState(setShowMenu)}
-          >
-            <MenuOutlinedIcon />
-          </button>
+          <SideBar
+            openBtn={
+              <span
+                className="block md:hidden"
+                onClick={() => {
+                  // toggleState(setShowMenu)
+                }}
+              >
+                <MenuOutlinedIcon className="text-3xl" />
+              </span>
+            }
+          />
         </div>
       </div>
       {showMenu && <MobileMenu toggleMobMenu={toggleMobMenu} />}

@@ -5,7 +5,7 @@ const HowItWorks = () => {
         {" "}
         How It Works
       </h3>
-      <div className=" flex md:flex-row flex-col items-start justify-around gap-6 bg-lightGreen rounded-xl py-10 p-5">
+      <div className=" flex md:flex-row flex-col items-start justify-around gap-6 bg-darkBlue rounded-xl py-10 p-5">
         <div className="flex sm:flex-row flex-col items-center sm:items-start gap-3 text-white w-full p-2 ">
           <div className="bg-slate-100 drop-shadow-lg p-5 rounded-3xl">
             <img src="/online-test.png" alt="" className="w-16" />

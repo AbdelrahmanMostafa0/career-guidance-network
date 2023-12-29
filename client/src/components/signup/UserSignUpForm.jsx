@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
 
 const UserSignUpForm = ({ titles, cities }) => {
   const passwordRegex = /^(?=.*[0-9]).{8,}$/;
@@ -15,7 +16,7 @@ const UserSignUpForm = ({ titles, cities }) => {
   const userData = useSelector((state) => state.userData.userData);
   const form = useForm({
     defaultValues: {
-      city: 1,
+      // city: 1,
       // title: 1,
     },
   });
@@ -23,7 +24,7 @@ const UserSignUpForm = ({ titles, cities }) => {
   const { errors } = formState;
   const onSubmit = (data) => {
     console.log(data);
-    data.city = 1;
+    // data.city = 1;
     // data.title = 1;
 
     // userRgister(data);
@@ -63,7 +64,7 @@ const UserSignUpForm = ({ titles, cities }) => {
               },
             })}
             type="text"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.firstName && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -81,7 +82,7 @@ const UserSignUpForm = ({ titles, cities }) => {
               },
             })}
             type="text"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.lastName && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -104,7 +105,7 @@ const UserSignUpForm = ({ titles, cities }) => {
             })}
             name="email"
             type="email"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.email && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -127,7 +128,7 @@ const UserSignUpForm = ({ titles, cities }) => {
               },
             })}
             type="password"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.password && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -144,7 +145,7 @@ const UserSignUpForm = ({ titles, cities }) => {
                 value === password || "Passwords do not match",
             })}
             type="password"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.password2 && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -166,7 +167,7 @@ const UserSignUpForm = ({ titles, cities }) => {
                   "Phone number must be at least 11 digits",
               },
             })}
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.phoneNumber && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -182,7 +183,7 @@ const UserSignUpForm = ({ titles, cities }) => {
               required: "Please enter your Date Of Birth",
             })}
             type="date"
-            className={`border-2 p-[11px]  rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-[11px]  rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.dateOfBirth && "border-red-500 focus:border-red-500"
             }`}
             min="1995-01-01"
@@ -195,7 +196,7 @@ const UserSignUpForm = ({ titles, cities }) => {
             {...register("gender", {
               required: "Please Choose your gender",
             })}
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.gender && "border-red-500 focus:border-red-500"
             }`}
           >
@@ -211,7 +212,7 @@ const UserSignUpForm = ({ titles, cities }) => {
             {...register("title", {
               required: "Please Choose your title",
             })}
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.title && "border-red-500 focus:border-red-500"
             }`}
           >
@@ -224,9 +225,29 @@ const UserSignUpForm = ({ titles, cities }) => {
           </select>
           <p className="text-red-500 mt-1">{errors.title?.message}</p>
         </div>
-        <button className="w-full mt-5 col-span-2 rounded-lg px-4 font-bold text-white bg-lighterGreen py-3 active:scale-[0.99] duration-100">
+        <div>
+          <p className="text-lg mb-1">City</p>
+          <select
+            {...register("city", {
+              required: "Please Choose your city",
+            })}
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
+              errors.city && "border-red-500 focus:border-red-500"
+            }`}
+          >
+            <option value="">select a city</option>
+            {cities?.map((city) => {
+              return <option value={city.id}>{city.name}</option>;
+            })}
+            {/* <option value="male">Male</option>
+            <option value="female">Female</option> */}
+          </select>
+          <p className="text-red-500 mt-1">{errors.city?.message}</p>
+        </div>
+        {/* <button className="w-full mt-5 col-span-2 rounded-lg px-4 font-bold text-white bg-lighterGreen py-3 active:scale-[0.99] duration-100">
           Sign Up
-        </button>
+        </button> */}
+        <Button className="col-span-2 h-10 w-full mt-4">Sign Up</Button>
       </form>
     </div>
   );

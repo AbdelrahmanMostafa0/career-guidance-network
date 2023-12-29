@@ -1,5 +1,10 @@
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { useSelector } from "react-redux";
+import Skills from "./extraData/Skills";
+
 const ExtraData = () => {
+  const userData = useSelector((state) => state.userData.userData);
+  console.log(userData);
   const tags = ["js", "html", "css", "frontend", "git"];
   const data = {
     school: "computer science - Helwan University ",
@@ -31,25 +36,8 @@ const ExtraData = () => {
     <section className=" space-y-4">
       {/* -----------------------------------tags and school-------------------------- */}
       <div className="flex flex-col md:flex-row gap-4 items-stretch">
-        {/* tags */}
-        <div
-          className="bg-white p-5 rounded-lg
-        space-y-2 w-full"
-        >
-          <h3 className="font-bold text-xl">Tags</h3>
-          <div className="flex flex-wrap justify-start items-center gap-2">
-            {data.tags.map((tag, index) => {
-              return (
-                <div
-                  key={index}
-                  className="bg-gray-100 py-1 px-3 rounded-lg font-semibold"
-                >
-                  {tag}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        {/* skills */}
+        <Skills />
         <div className="bg-white space-y-2 p-5 rounded-lg w-full">
           <h3 className="font-bold text-xl">School</h3>
           <p className="py-1 font-semibold">
@@ -60,6 +48,7 @@ const ExtraData = () => {
           </p>
         </div>
       </div>
+
       {/* -------------------------------about and badges----------------------- */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="p-5 bg-white md:w-7/12 space-y-2 rounded-lg">

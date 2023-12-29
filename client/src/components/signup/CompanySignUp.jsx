@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 
 const CompanySignUp = () => {
@@ -32,7 +33,7 @@ const CompanySignUp = () => {
               },
             })}
             type="text"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.name && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -55,7 +56,7 @@ const CompanySignUp = () => {
             })}
             name="email"
             type="email"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.email && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -78,7 +79,7 @@ const CompanySignUp = () => {
               },
             })}
             type="password"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.password && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -95,7 +96,7 @@ const CompanySignUp = () => {
                 value === password || "Passwords do not match",
             })}
             type="password"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.password2 && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -117,7 +118,7 @@ const CompanySignUp = () => {
                   "Phone number must be at least 11 digits",
               },
             })}
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.phoneNumber && "border-red-500 focus:border-red-500"
             }`}
           />
@@ -132,7 +133,7 @@ const CompanySignUp = () => {
               required: "Please enter when your company Founded at",
             })}
             type="date"
-            className={`border-2 p-[11px]  rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
+            className={`border-2 p-[11px]  rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
               errors.foundedAt && "border-red-500 focus:border-red-500"
             }`}
             min="1995-01-01"
@@ -156,15 +157,13 @@ const CompanySignUp = () => {
               },
             })}
             type="text"
-            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen resize-none min-h-[150px] ${
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue resize-none min-h-[150px] ${
               errors.about && "border-red-500 focus:border-red-500"
             }`}
           />
           <p className="text-red-500 mt-1">{errors.about?.message}</p>
         </div>
-        <button className="w-full col-span-2 rounded-lg px-4 font-bold text-white bg-lighterGreen py-3 active:scale-[0.99] duration-100">
-          Sign Up
-        </button>
+        <Button className="col-span-2 h-10 w-full mt-4">Sign Up</Button>
       </form>
     </div>
   );
