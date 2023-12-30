@@ -1,6 +1,4 @@
-import AddProject from "./Modals/AddProject";
 import PojectCard from "./PojectCard";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 const Projects = () => {
   const projects = [
     {

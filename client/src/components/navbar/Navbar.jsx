@@ -1,46 +1,19 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MobileMenu from "./MobileMenu";
-import { Notifications } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import { logoutUser } from "@/redux/features/user/userProfileSlice";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LogoutIcon from "@mui/icons-material/Logout";
-import SettingsIcon from "@mui/icons-material/Settings";
 import UserMenu from "./UserMenu";
 import SideBar from "./SideBar";
+
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [signedIn, setSignedIn] = useState(false);
-  const [showNotification, setShowNotification] = useState(false);
-  const [showUserMenu, setShowUserMenu] = useState(false);
-  const toggleMobMenu = () => {
-    setShowMenu((prevState) => !prevState);
-  };
-
-  const toggleState = (setState) => {
-    setState((prevState) => !prevState);
-  };
-  const toggleUserMenu = () => {
-    setShowUserMenu((prevState) => !prevState);
-  };
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     dispatch(getUserData());
-  //   }
-  // }, []);
   const userData = useSelector((state) => state.userData.userData);
   return (
-    <nav className="px-5  py-5  border-b  bg-white z-50 sticky top-0">
+    <nav className="px-5 py-3 sm:py-5  border-b  bg-white z-50 sticky top-0">
       {/* logo and links */}
-      <div className="md:w-[90%] flex items-center justify-between mx-auto">
+      <div className="md:w-[90%] max-w-[1800px] flex items-center justify-between mx-auto">
         <div className="flex items-center gap-10">
           {/* logo */}
           <Link href={"/"} className="flex gap-2 items-center">
-            <img src="/logo.svg" className="w-[50px] sm:w-[65px]" alt="" />
+            <img src="/logo.svg" className="w-[40px] sm:w-[65px]" alt="" />
             <p className="text-3xl text-lighterGreen font-bold tracking-wider">
               CGN
             </p>
@@ -96,20 +69,10 @@ const Navbar = () => {
           )}
 
           <SideBar
-            openBtn={
-              <span
-                className="block md:hidden"
-                onClick={() => {
-                  // toggleState(setShowMenu)
-                }}
-              >
-                <MenuOutlinedIcon className="text-3xl" />
-              </span>
-            }
+            openBtn={<MenuOutlinedIcon className="text-3xl md:hidden" />}
           />
         </div>
       </div>
-      {showMenu && <MobileMenu toggleMobMenu={toggleMobMenu} />}
     </nav>
   );
 };

@@ -23,7 +23,7 @@ const PersonalInfo = () => {
         {userData.firstName + " " + userData.lastName}
         {""}
       </h1>
-      <p className="text-lightBlue">{userData.title}</p>
+      <p className="text-lightBlue">{userData.title.name}</p>
       <div className="flex  justify-center items-center gap-4">
         {userData.linkedinLink && (
           <a

@@ -51,9 +51,10 @@ const AddSkillForm = () => {
         // Dispatch the addSkills action and wait for it to complete
         await dispatch(addSkills({ skills: skillsId }));
         if (addSkillStatus === "succeeded") {
-          setSelectedSkills([]);
         }
+        setSelectedSkills([]);
         dispatch(getUserData());
+
         // After addSkills is completed, dispatch getUserData
       } catch (error) {
         // Handle errors if necessary

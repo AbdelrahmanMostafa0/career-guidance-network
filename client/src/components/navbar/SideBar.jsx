@@ -36,7 +36,9 @@ const SideBar = ({ openBtn }) => {
                       {userData.firstName + " " + userData.lastName}
                     </p>
                   </Link>
-                  <p className="text-sm text-slate-500">{userData.title}</p>
+                  <p className="text-sm text-slate-500">
+                    {userData.title.name}
+                  </p>
                 </div>
               </div>
             </SheetTitle>
