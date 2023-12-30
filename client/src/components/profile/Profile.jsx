@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import ExtraData from "./ExtraData";
 import PersonalInfo from "./PersonalInfo";
-import Projects from "./Projects";
+import Projects from "./projects/Projects";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { ChaoticOrbit } from "@uiball/loaders";
 import { getSkills } from "@/redux/features/user/SkillsSlice";
+import { getProjects } from "@/redux/features/user/projectsSlice";
 
 const Profile = () => {
   const router = useRouter();
@@ -17,6 +18,7 @@ const Profile = () => {
       router.push("/");
     }
     dispatch(getSkills());
+    dispatch(getProjects());
   }, []);
 
   return (
