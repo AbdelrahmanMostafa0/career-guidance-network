@@ -1,17 +1,27 @@
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
+  DialogClose,
   DialogTitle,
   DialogTrigger,
+  DialogFooter,
 } from "@/components/ui/dialog";
-import CloseIcon from "@mui/icons-material/Close";
-const Modal = ({ title, openBtn, actionFunction, children, className }) => {
+
+const Modal = ({
+  title,
+  openBtn,
+  trigerStyle,
+  children,
+  closebtn,
+  className,
+}) => {
   return (
     <Dialog className={"max-h-[90dvh] overflow-auto"}>
-      <DialogTrigger className="p-0 m-0">{openBtn}</DialogTrigger>
-      <DialogContent className="rounded-md max-h-[90dvh] ">
+      <DialogTrigger className={trigerStyle}>{openBtn}</DialogTrigger>
+      <DialogContent className={`rounded-md max-h-[98dvh] ${className}  `}>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{children}</DialogDescription>

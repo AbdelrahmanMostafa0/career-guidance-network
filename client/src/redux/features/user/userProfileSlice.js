@@ -24,6 +24,27 @@ export const getUserData = createAsyncThunk(
     }
   }
 );
+export const getCompanyData = createAsyncThunk(
+  "userData/getCompanyData",
+  async () => {
+    try {
+      const response = await axios.get(
+        "http://127.0.0.1:8000/company/profile/",
+        {
+          headers: {
+            "X-Auth-Token": `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json", // Specify content type as JSON
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      // console.log(error.response.data);
+      throw error.response.data;
+    }
+  }
+);
+
 const userDataSlice = createSlice({
   name: "userDataSlice",
   initialState,
@@ -31,8 +52,8 @@ const userDataSlice = createSlice({
     logoutUser: (state) => {
       state.userData = null;
       localStorage.removeItem("token");
-      localStorage.removeItem("isAuth");
-      localStorage.removeItem("userData");
+
+      localStorage.removeItem("isCompany");
     },
   },
   extraReducers(builder) {
@@ -46,6 +67,17 @@ const userDataSlice = createSlice({
         state.userData = action.payload;
       })
       .addCase(getUserData.rejected, (state, action) => {
+        state.status = "failed";
+      })
+      .addCase(getCompanyData.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(getCompanyData.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        console.log(action);
+        state.userData = action.payload;
+      })
+      .addCase(getCompanyData.rejected, (state, action) => {
         state.status = "failed";
       });
   },

@@ -1,27 +1,37 @@
 import { Button } from "@/components/ui/button";
-import { addProject, getProjects } from "@/redux/features/user/projectsSlice";
+import { editProject, getProjects } from "@/redux/features/user/projectsSlice";
 import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
-const AddProjectForm = () => {
-  const [posted, setPosted] = useState(false);
-  const [description, setdescription] = useState("");
-  const form = useForm();
-  const { register, handleSubmit, formState, reset } = form;
+const EditProject = ({ project }) => {
+  const [Posted, setPosted] = useState(false);
+  const form = useForm({
+    defaultValues: {
+      name: project.name,
+      description: project.description,
+      link: project.link,
+    },
+  });
+  const status = useSelector((state) => state.projects.editProject.status);
+  console.log(project.id);
+  const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const dispatch = useDispatch();
-
-  const status = useSelector((state) => state.projects.addProject.status);
   const onSubmit = async (data) => {
+    const projectId = project.id;
+    // console(projectId);
     try {
-      await dispatch(addProject(data));
+      await dispatch(editProject({ projectData: data, projectId }));
+
       dispatch(getProjects());
-      reset();
+      if (status === "succeeded") {
+        setPosted(true);
+      }
     } catch (error) {}
   };
-
-  return !posted ? (
+  return !Posted ? (
     <form
       noValidate
       onSubmit={handleSubmit(onSubmit)}
@@ -70,25 +80,11 @@ const AddProjectForm = () => {
               value: true,
               message: " Please enter the description",
             },
-            validate: {
-              minLength: (value) =>
-                value.length > 70 ||
-                "description must be at least 70 charachter",
-              maxLength: (value) =>
-                value.length < 300 ||
-                "description must be less than 300 charachter",
-            },
           })}
-          onChange={(e) => {
-            setdescription(e.target.value);
-          }}
           type="text"
           className="w-full p-2 h-[150px] focus:outline-none focus:border-darkBlue  border-2 mt-2 text-darkBlue rounded-md"
           placeholder="description"
         />
-        <p className="text-sm text-gray-500 text-end">
-          {description.length} / 300
-        </p>
         <p className="text-red-500 mt-1">{errors.description?.message}</p>
       </div>
 
@@ -100,4 +96,4 @@ const AddProjectForm = () => {
     <div className="min-h-[250px] grid place-content-center">posted</div>
   );
 };
-export default AddProjectForm;
+export default EditProject;

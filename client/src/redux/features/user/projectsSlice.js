@@ -65,9 +65,10 @@ export const addProject = createAsyncThunk(
 
 export const editProject = createAsyncThunk(
   "userProjects/editProject",
-  async (projectData, projectId) => {
+  async ({ projectData, projectId }, thunkAPI) => {
+    console.log("project id", projectId);
     try {
-      const response = await axios.post(
+      const response = await axios.put(
         `http://127.0.0.1:8000/project/edit/${projectId}/`,
         projectData,
         {
@@ -83,14 +84,15 @@ export const editProject = createAsyncThunk(
     }
   }
 );
+
 // ---------------------------------------------------------------
 
 export const deleteProject = createAsyncThunk(
   "userProjects/deleteProject",
   async (projectId) => {
     try {
-      const response = await axios.post(
-        `http://127.0.0.1:8000/project/edit/${projectId}/`,
+      const response = await axios.delete(
+        `http://127.0.0.1:8000/project/delete/${projectId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

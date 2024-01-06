@@ -8,20 +8,23 @@ const Skills = () => {
   const userData = useSelector((state) => state.userData.userData);
   return (
     <ExtraDataContainer>
-      <h3 className="font-bold text-xl ">Skills</h3>
-      {!!userData.skills.length > 0 && (
-        <Modal
-          title={"Edit Skill"}
-          openBtn={
-            <button className="absolute top-1  right-3">
-              <BorderColorOutlinedIcon className="text-sm" />
-            </button>
-          }
-        >
-          {" "}
-          <AddSkillForm />
-        </Modal>
-      )}
+      <div className="flex items-start justify-between mb-5">
+        <h3 className="font-bold text-xl ">Skills</h3>
+
+        {!!userData.skills.length > 0 && (
+          <Modal
+            title={"Edit Skill"}
+            openBtn={
+              <button className=" right-3">
+                <BorderColorOutlinedIcon className="text-lg" />
+              </button>
+            }
+          >
+            {" "}
+            <AddSkillForm />
+          </Modal>
+        )}
+      </div>
       <div className="flex flex-wrap justify-start items-center -mt-2 gap-2">
         {userData.skills.length > 0 ? (
           userData.skills.map((skill, index) => {

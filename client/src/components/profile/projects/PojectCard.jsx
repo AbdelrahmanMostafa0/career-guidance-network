@@ -1,4 +1,8 @@
 import Modal from "@/shared/Modal";
+import EditProject from "../editForms/pojects/EditProject";
+import DeleteProject from "../editForms/pojects/DeleteProject";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 const PojectCard = ({ project }) => {
   return (
     <div className=" overflow-hidden h-ull  rounded-2xl drop-shadow-lg bg-white relative border space-y-3 flex flex-col justify-between items-start w-full p-4">
@@ -25,10 +29,7 @@ const PojectCard = ({ project }) => {
           </div>
         </div>
       </Modal>
-      <p>
-        {project.description.slice(0, 60)}
-        {project.description.length > 60 && "....."}
-      </p>
+      <p className="line-clamp-2">{project.description}</p>
 
       <a
         href={project.link}
@@ -37,6 +38,33 @@ const PojectCard = ({ project }) => {
       >
         Visit Project
       </a>
+      <div className="flex items-center justify-end gap-3 w-full">
+        <Modal
+          className={"overflow-auto"}
+          openBtn={
+            <button className="w-full py-1 rounded-md bg-gray-300 hover:bg-gray-200 duration-150 flex items-center gap-1 justify-center border">
+              <EditNoteIcon className="text-blue-500 hover:text-blue-400" />
+              Edit
+            </button>
+          }
+          trigerStyle={"w-full"}
+          title={"Edit Project"}
+        >
+          <EditProject project={project} />
+        </Modal>
+        <Modal
+          openBtn={
+            <button className="w-full py-1 rounded-md bg-gray-300 hover:bg-gray-200 duration-150 flex items-center gap-1 justify-center border ">
+              <DeleteIcon className="text-red-500 hover:text-red-400" />
+              delete
+            </button>
+          }
+          trigerStyle={"w-full"}
+          title={"delete Project"}
+        >
+          <DeleteProject project={project} />
+        </Modal>
+      </div>
     </div>
   );
 };

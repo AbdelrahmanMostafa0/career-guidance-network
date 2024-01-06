@@ -7,18 +7,35 @@ import { useDispatch, useSelector } from "react-redux";
 import { ChaoticOrbit } from "@uiball/loaders";
 import { getSkills } from "@/redux/features/user/SkillsSlice";
 import { getProjects } from "@/redux/features/user/projectsSlice";
-
+import { getCertification } from "@/redux/features/user/certificationSlice";
 const Profile = () => {
+  useEffect(() => {
+    // Check if localStorage is available before using it
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      // Split the token into its three parts: header, payload, signature
+      const tokenParts = token.split(".");
+
+      // Decode the base64-encoded payload (second part)
+      const decodedPayload = JSON.parse(atob(tokenParts[1]));
+
+      console.log("Token payload:", decodedPayload);
+    } else {
+      console.error("Token not found in localStorage");
+    }
+  }, []);
   const router = useRouter();
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.userData.userData);
-  // console;
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       router.push("/");
     }
     dispatch(getSkills());
     dispatch(getProjects());
+    dispatch(getCertification());
   }, []);
 
   return (

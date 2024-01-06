@@ -33,11 +33,11 @@ const SideBar = ({ openBtn }) => {
                   <Link href={"/profile"}>
                     <p className="text-2xl capitalize">
                       {" "}
-                      {userData.firstName + " " + userData.lastName}
+                      {userData?.firstName + " " + userData?.lastName}
                     </p>
                   </Link>
                   <p className="text-sm text-slate-500">
-                    {userData.title.name}
+                    {userData?.title?.name}
                   </p>
                 </div>
               </div>

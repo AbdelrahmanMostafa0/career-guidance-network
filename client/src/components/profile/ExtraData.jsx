@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
 import Skills from "./extraData/Skills";
 import Experience from "./extraData/Experience";
-import Education from "./extraData/Education";
+import Education from "./extraData/education/Education";
 import AboutMe from "./extraData/AboutMe";
 import ContactInfo from "./extraData/ContactInfo";
+import Certifications from "./extraData/certifications/Certifications";
 
 const ExtraData = () => {
   const userData = useSelector((state) => state.userData.userData);
@@ -24,7 +25,7 @@ const ExtraData = () => {
       {/* ------------------------------ skills & experiance & contact info -------------------------- */}
       <div className="flex flex-col  md:flex-row gap-4">
         <Experience />
-        <Skills />
+        <Certifications />
       </div>
     </section>
   );

@@ -100,7 +100,10 @@ const AddSkillForm = () => {
           selectedSkills.length > 0 &&
           selectedSkills.map((skill) => {
             return (
-              <p className="border rounded-full t px-2 py-[2px] flex gap-2 justify-between items-center">
+              <p
+                key={skill?.id}
+                className="border rounded-full t px-2 py-[2px] flex gap-2 justify-between items-center"
+              >
                 {skill.name}{" "}
                 <button onClick={() => removeSkill(skill)}>
                   <CloseIcon className="text-sm hover:text-red-500" />

@@ -1,39 +1,28 @@
-// import { userLogin } from "@/api/userApis";
-import { getUserData } from "@/redux/features/user/userProfileSlice";
-import { userLogin } from "@/redux/features/user/userLoginSlice";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+
 import { Button } from "../ui/button";
+import UserSignin from "./UserSignin";
+import { useState } from "react";
+import CompanySignin from "./CopmanySignin";
+import axios from "axios";
 
 const SignIn = () => {
-  const router = useRouter();
-  const status = useSelector((state) => state.login.status);
-  const form = useForm();
-  const dispatch = useDispatch();
-  const { register, handleSubmit, formState } = form;
-  const { errors } = formState;
-  const userData = useSelector((state) => state.userData.userData);
-  const onSubmit = async (data) => {
-    // userLogin(data);
-
-    dispatch(userLogin(data));
+  const [signinType, setSigninType] = useState("user");
+  const onSignInType = (type) => {
+    setSigninType(type);
   };
-  useEffect(() => {
-    if (status === "succeeded" && localStorage.getItem("token")) {
-      dispatch(getUserData());
-      router.push("/");
-    }
-    // console.log(status);
-  }, [status]);
 
-  useEffect(() => {
-    if (userData) {
-      router.push("/");
-    }
-  }, [userData]);
+  const fetchtest = async () => {
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/company/test/", {
+        headers: {
+          "X-Auth-Token":
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA0NTY0NTcyLCJpYXQiOjE3MDQ0NzgxNzIsImp0aSI6IjI0NjFkOGJmZjhjMTQ4YmE5OWRlNWViNzAyNzA3ODU3IiwidXNlcl9pZCI6MSwiY29tcGFueV9pZCI6MSwiZW1haWwiOiJjb21wYW55MUBjb21wYW55LmNvbSJ9.jEP4aJFtJrbJAD0SlOoVFCR3tzGWKdRhe_wrh9MBcrs",
+        },
+      });
+      console.log(response.data);
+    } catch (error) {}
+  };
   return (
     <div className="p-4 grid md:grid-cols-2 min-h-[80dvh] md:min-h-[88dvh] ">
       {/* form */}
@@ -51,55 +40,26 @@ const SignIn = () => {
           </p>
         </div>
         <div>
-          <form
-            noValidate
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col md:max-w-[500px] space-y-5"
-          >
-            <div className="space-y-2">
-              <p className="text-xl">Email</p>
-              <input
-                name="email"
-                type="email"
-                placeholder="Email"
-                {...register("email", {
-                  required: {
-                    value: true,
-                    message: " Please enter your email",
-                  },
-                  pattern: {
-                    value:
-                      /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-]+)(\.[a-zA-Z]{2,5}){1,2}$/,
-                    message: "Please enter a valid email",
-                  },
-                })}
-                className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-                  errors.email && "border-red-500 focus:border-red-500"
-                }`}
-              />
-              <p className="text-red-500 mt-1">{errors.email?.message}</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-xl">Password</p>
-              <input
-                name="Password"
-                {...register("password", {
-                  required: {
-                    value: true,
-                    message: "please enter your password",
-                  },
-                })}
-                placeholder="Password"
-                type="password"
-                className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-lightGreen ${
-                  errors.password && "border-red-500 focus:border-red-500"
-                }`}
-              />
-              <p className="text-red-500 mt-1">{errors.password?.message}</p>
-            </div>
-
-            <Button className="col-span-2 h-12 w-full mt-4">Sign in</Button>
-          </form>
+          <div className="flex -mt-3 mb-3 gap-2 md:max-w-[500px]">
+            {" "}
+            <button
+              onClick={() => onSignInType("user")}
+              className={`w-full border py-2 rounded-md border-darkBlue font-semibold ${
+                signinType === "user" && "bg-darkBlue text-white"
+              }`}
+            >
+              User
+            </button>
+            <button
+              onClick={() => onSignInType("company")}
+              className={`w-full border py-2 rounded-md border-darkBlue font-semibold ${
+                signinType === "company" && "bg-darkBlue text-white"
+              }`}
+            >
+              Company
+            </button>
+          </div>
+          {signinType === "user" ? <UserSignin /> : <CompanySignin />}
         </div>
       </div>
       {/*  */}
@@ -108,7 +68,7 @@ const SignIn = () => {
           Welcome Back to CGN
         </h3>
         <p className="text-gray-200">Your Journey Continues Here.</p>
-        <p className="text-xl  text-white font-thin w-[80%] leading-relaxed">
+        <p className="text-xl  text-white  w-[80%] leading-relaxed">
           Hello again! We're thrilled to see you back at CGN. Welcome back to
           the community that's shaping the future of students like you.
         </p>

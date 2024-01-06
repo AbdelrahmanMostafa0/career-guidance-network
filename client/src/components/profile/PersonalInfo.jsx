@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 const PersonalInfo = () => {
   const userData = useSelector((state) => state.userData.userData);
+  const projects = useSelector((state) => state.projects.userProjects.projects);
 
   return (
     <section className="bg-white p-10 rounded-xl flex justify-center items-center flex-col relative space-y-3">
@@ -47,9 +48,11 @@ const PersonalInfo = () => {
             GitHub
           </a>
         )}
-        <div className="flex items-center text-center flex-col md:flex-row ">
-          <LightbulbOutlinedIcon />
-          <p>{userData.projrctsCount} Projects</p>
+        <div className="flex items-center text-center gap-2 flex-col md:flex-row ">
+          <p className="text-xl font-semibold">{projects?.length}</p>
+          {/* <LightbulbOutlinedIcon /> */}
+
+          <p> Projects</p>
         </div>
       </div>
     </section>
