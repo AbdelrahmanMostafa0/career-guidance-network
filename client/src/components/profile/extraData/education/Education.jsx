@@ -22,7 +22,7 @@ const Education = () => {
     <ExtraDataContainer className={"flex flex-col"}>
       <div className="flex justify-between items-center">
         <h3 className="font-bold text-xl">Education</h3>
-        {education && education.length > 0 && (
+        {education && education?.length > 0 && (
           <div className="flex gap-2 items-center">
             <Modal
               title={"Add Education"}
@@ -47,7 +47,7 @@ const Education = () => {
         )}
       </div>
       <div className="space-y-2 justify-center flex flex-col h-full">
-        {education && education.length > 0 ? (
+        {education && education?.length > 0 ? (
           <EducationCard education={education[0]} key={education[0].id} />
         ) : (
           <div className="w-full h-max flex items-center justify-center mt-5 ">

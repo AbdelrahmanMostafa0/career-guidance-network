@@ -8,7 +8,7 @@ const EditEducation = () => {
   return (
     <div className="space-y-2">
       <h3 className="text-xl mb-3  font-bold"> Edit Education</h3>
-      {education.map((item) => {
+      {education?.map((item) => {
         return (
           <>
             <EducationCard education={item} key={item.id} edit={true} />

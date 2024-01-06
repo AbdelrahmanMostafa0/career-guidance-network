@@ -65,6 +65,7 @@ const userDataSlice = createSlice({
         state.status = "succeeded";
         console.log(action);
         state.userData = action.payload;
+        state.userData.isCompany = false;
       })
       .addCase(getUserData.rejected, (state, action) => {
         state.status = "failed";
@@ -74,8 +75,9 @@ const userDataSlice = createSlice({
       })
       .addCase(getCompanyData.fulfilled, (state, action) => {
         state.status = "succeeded";
-        console.log(action);
+        // console.log(action);
         state.userData = action.payload;
+        state.userData.isCompany = true;
       })
       .addCase(getCompanyData.rejected, (state, action) => {
         state.status = "failed";

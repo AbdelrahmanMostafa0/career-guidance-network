@@ -11,7 +11,7 @@ const Skills = () => {
       <div className="flex items-start justify-between mb-5">
         <h3 className="font-bold text-xl ">Skills</h3>
 
-        {!!userData.skills.length > 0 && (
+        {!!userData?.skills.length > 0 && (
           <Modal
             title={"Edit Skill"}
             openBtn={
@@ -26,8 +26,8 @@ const Skills = () => {
         )}
       </div>
       <div className="flex flex-wrap justify-start items-center -mt-2 gap-2">
-        {userData.skills.length > 0 ? (
-          userData.skills.map((skill, index) => {
+        {userData?.skills.length > 0 ? (
+          userData?.skills.map((skill, index) => {
             return (
               <div
                 key={skill.id}

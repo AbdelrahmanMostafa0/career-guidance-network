@@ -4,7 +4,7 @@ import PersonalInfo from "./PersonalInfo";
 import Projects from "./projects/Projects";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { ChaoticOrbit } from "@uiball/loaders";
+import { LeapFrog } from "@uiball/loaders";
 import { getSkills } from "@/redux/features/user/SkillsSlice";
 import { getProjects } from "@/redux/features/user/projectsSlice";
 import { getCertification } from "@/redux/features/user/certificationSlice";
@@ -34,7 +34,7 @@ const Profile = () => {
         ) : (
           <div className="grid place-content-center h-[80dvh]">
             {" "}
-            <ChaoticOrbit size={60} color="#13B194" />
+            <LeapFrog size={60} color="#13B194" />
           </div>
         )}
       </div>
