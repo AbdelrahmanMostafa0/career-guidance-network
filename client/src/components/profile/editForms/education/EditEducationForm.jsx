@@ -18,7 +18,6 @@ for (let year = 2040; year >= 2010; year--) {
 }
 
 const EditEducationForm = ({ education }) => {
-  console.log(education);
   const form = useForm({
     defaultValues: {
       description: education.description,
@@ -35,7 +34,7 @@ const EditEducationForm = ({ education }) => {
   const universities = useSelector(
     (state) => state.globalData.universities.uni
   );
-  console.log(universities);
+
   useEffect(() => {
     dispatch(getUniversityList());
   }, []);

@@ -63,7 +63,6 @@ const AddExp = () => {
     form.setValue("toDate", toDateValidation);
   };
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       await dispatch(addExp(data));
       dispatch(getExp());

@@ -9,7 +9,7 @@ import AddProjectForm from "../editForms/pojects/AddProjectForm";
 import { useSelector } from "react-redux";
 const Projects = () => {
   const projects = useSelector((state) => state.projects.userProjects.projects);
-  console.log(projects);
+
   return (
     <ExtraDataContainer>
       <div className="flex items-center justify-between mb-5">

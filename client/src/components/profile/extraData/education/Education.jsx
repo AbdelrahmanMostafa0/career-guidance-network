@@ -18,7 +18,6 @@ const Education = () => {
     dispatch(getEducation());
   }, []);
 
-  // console.log("education", education[0]);
   return (
     <ExtraDataContainer className={"flex flex-col"}>
       <div className="flex justify-between items-center">

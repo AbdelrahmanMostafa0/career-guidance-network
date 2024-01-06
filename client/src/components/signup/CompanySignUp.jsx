@@ -11,13 +11,11 @@ const CompanySignUp = () => {
   const cities = useSelector((state) => state.globalData.cities.citiesList);
   const router = useRouter();
 
-  console.log(cities);
   const dispatch = useDispatch();
   const form = useForm();
   const { register, handleSubmit, formState, watch } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
-    console.log(data);
     dispatch(companyRegister(data));
   };
   const isNumeric = (value) => /^\d+$/.test(value);

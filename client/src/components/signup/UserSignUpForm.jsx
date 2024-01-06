@@ -23,7 +23,6 @@ const UserSignUpForm = ({ titles, cities }) => {
   const { register, handleSubmit, control, formState, watch } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
-    console.log(data);
     // data.city = 1;
     // data.title = 1;
 
@@ -40,7 +39,6 @@ const UserSignUpForm = ({ titles, cities }) => {
       // dispatch(getUserData());
       router.push("/signin");
     }
-    // console.log(status);
   }, [status]);
   const password = watch("password", "");
   const confirmPassword = watch("confirmPassword", "");

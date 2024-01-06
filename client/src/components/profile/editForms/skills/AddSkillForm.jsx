@@ -35,9 +35,6 @@ const AddSkillForm = () => {
 
     setFilteredSkills(null);
   };
-  //   console.log(skills);
-  //   console.log(filteredSkills);
-  //   console.log(selectedSkills);
   const removeSkill = (skill) => {
     const newSkillsArr = selectedSkills.filter((skills) => skills !== skill);
     setSelectedSkills(newSkillsArr);

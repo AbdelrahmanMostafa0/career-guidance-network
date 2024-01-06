@@ -13,7 +13,7 @@ const Experience = () => {
     dispatch(getExp());
   }, []);
   const experiances = useSelector((state) => state.experience.getExp.exps);
-  console.log(experiances);
+
   const data = {
     school: "computer science - Helwan University ",
     grad: true,

@@ -8,7 +8,7 @@ import Certifications from "./extraData/certifications/Certifications";
 
 const ExtraData = () => {
   const userData = useSelector((state) => state.userData.userData);
-  console.log(userData);
+
   return (
     <section className=" space-y-4">
       {/* -----------------------------------Skills and school-------------------------- */}

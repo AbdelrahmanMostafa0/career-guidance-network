@@ -15,7 +15,7 @@ const EditProject = ({ project }) => {
     },
   });
   const status = useSelector((state) => state.projects.editProject.status);
-  console.log(project.id);
+
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const dispatch = useDispatch();

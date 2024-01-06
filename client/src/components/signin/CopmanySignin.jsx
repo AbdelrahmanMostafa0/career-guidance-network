@@ -24,7 +24,6 @@ const CompanySignin = () => {
       dispatch(getCompanyData());
       router.push("/");
     }
-    // console.log(status);
   }, [status]);
 
   useEffect(() => {

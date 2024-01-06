@@ -24,7 +24,7 @@ const AddEducation = () => {
   const universities = useSelector(
     (state) => state.globalData.universities.uni
   );
-  console.log(universities);
+
   useEffect(() => {
     dispatch(getUniversityList());
   }, []);

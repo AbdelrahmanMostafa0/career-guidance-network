@@ -24,7 +24,6 @@ const UserSignin = () => {
       dispatch(getUserData());
       router.push("/");
     }
-    // console.log(status);
   }, [status]);
 
   useEffect(() => {

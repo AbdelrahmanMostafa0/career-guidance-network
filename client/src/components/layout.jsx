@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
 
       // Decode the base64-encoded payload (second part)
       const decodedPayload = JSON.parse(atob(tokenParts[1]));
-      console.log(decodedPayload);
+
       if (!decodedPayload.company_id) {
         dispatch(getUserData());
       } else {

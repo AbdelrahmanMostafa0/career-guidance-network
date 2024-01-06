@@ -25,8 +25,6 @@ const SignUp = () => {
     getAllCities();
     getAllTitles();
   }, []);
-  console.log("titles", titles);
-  console.log("cities", cities);
 
   return (
     <div className="my-10 container px-2 mx-auto space-y-4">
