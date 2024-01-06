@@ -11,12 +11,15 @@ const AboutMe = () => {
       " Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quibusdam libero, dolores facilis similique dolore voluptatum enim! Facere maxime impedit ad quis consectetur mollitia corporis! Nulla, est. Alias, dolores nisi. Eaque tempore, eligendi modi quas facilis laborum iusto magnam voluptates. Autem possimus illo animi consequatur atque doloremque unde voluptatem adipisci.",
   };
 
-  const displayedAbout = data.about.substring(0, 250);
-  const showMoreAbout = data.about.length > 250;
+  const displayedAbout = data.about.substring(0, 150);
+  const showMoreAbout = data.about.length > 150;
   return (
     <ExtraDataContainer className={"md:w-7/12"}>
       <h3 className="font-bold text-xl">About</h3>
-      <p className="leading-loose">{displayedAbout}</p>
+      <p className="leading-loose">
+        {displayedAbout}
+        {showMoreAbout && " ......."}
+      </p>
       {!!showMoreAbout && (
         <div className="flex justify-center items-center">
           <Modal

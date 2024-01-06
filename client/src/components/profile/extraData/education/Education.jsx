@@ -3,11 +3,11 @@ import ExtraDataContainer from "../ExtraDataContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { getEducation } from "@/redux/features/user/educationSlice";
 import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
-
-import AddSkillForm from "../../editForms/skills/AddSkillForm";
+import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import Modal from "@/shared/Modal";
 import AddEducation from "../../editForms/education/AddEducation";
 import EducationCard from "./EducationCard";
+import EditEducation from "./EditEducation";
 
 const Education = () => {
   const dispatch = useDispatch();
@@ -24,19 +24,32 @@ const Education = () => {
       <div className="flex justify-between items-center">
         <h3 className="font-bold text-xl">Education</h3>
         {education && education.length > 0 && (
-          <Modal
-            title={"Add Education"}
-            openBtn={<ControlPointOutlinedIcon className="w-12  text-xl" />}
-          >
-            <AddEducation />
-          </Modal>
+          <div className="flex gap-2 items-center">
+            <Modal
+              title={"Add Education"}
+              openBtn={<ControlPointOutlinedIcon className="w-12  text-xl" />}
+            >
+              <AddEducation />
+            </Modal>
+
+            <Modal
+              className={"overflow-auto"}
+              openBtn={
+                <button className=" right-3">
+                  <BorderColorOutlinedIcon className="text-lg" />
+                </button>
+              }
+            >
+              {" "}
+              <EditEducation />
+              {/* <EditCertifications /> */}
+            </Modal>
+          </div>
         )}
       </div>
       <div className="space-y-2 justify-center flex flex-col h-full">
         {education && education.length > 0 ? (
-          education.map((education) => {
-            return <EducationCard education={education} key={education.id} />;
-          })
+          <EducationCard education={education[0]} key={education[0].id} />
         ) : (
           <div className="w-full h-max flex items-center justify-center mt-5 ">
             <Modal
@@ -46,6 +59,27 @@ const Education = () => {
               <AddEducation />
             </Modal>
           </div>
+        )}
+        {education && education.length > 1 && (
+          <Modal
+            openBtn={
+              <button className="text-lightGreen text-center w-fit underline">
+                show more
+              </button>
+            }
+          >
+            <div className="space-y-3">
+              <h3 className="text-xl font-bold ">Educations</h3>
+              {education.map((education) => {
+                return (
+                  <div>
+                    <EducationCard education={education} key={education.id} />
+                    <hr />
+                  </div>
+                );
+              })}
+            </div>
+          </Modal>
         )}
       </div>
       {/* <p className="py-1 font-semibold">

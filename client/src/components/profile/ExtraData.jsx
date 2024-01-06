@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Skills from "./extraData/Skills";
-import Experience from "./extraData/Experience";
+import Experience from "./extraData/experience/Experience";
 import Education from "./extraData/education/Education";
 import AboutMe from "./extraData/AboutMe";
 import ContactInfo from "./extraData/ContactInfo";

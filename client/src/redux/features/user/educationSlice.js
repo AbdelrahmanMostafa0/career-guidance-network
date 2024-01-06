@@ -62,11 +62,11 @@ export const addEducation = createAsyncThunk(
 );
 export const editEducation = createAsyncThunk(
   "educationSlice/editEducation",
-  async ({ certificationData, certificationId }) => {
+  async ({ educationData, educationId }) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/education/edit/${certificationId}/`,
-        certificationData,
+        `http://127.0.0.1:8000/education/edit/${educationId}/`,
+        educationData,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -82,10 +82,10 @@ export const editEducation = createAsyncThunk(
 );
 export const deleteEducation = createAsyncThunk(
   "educationSlice/deleteEducation",
-  async (certificationId) => {
+  async (educationId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/project/delete/${certificationId}/`,
+        `http://127.0.0.1:8000/education/delete/${educationId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
