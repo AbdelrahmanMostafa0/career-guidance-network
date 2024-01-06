@@ -1,19 +1,37 @@
 import { Button } from "@/components/ui/button";
+import { companyRegister } from "@/redux/features/company/companyRegisterSlice";
+import { getCitiesList } from "@/redux/features/getData/globalDataSlice";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 const CompanySignUp = () => {
-  const form = useForm({
-    // defaultValues: {
-    //   type: "Company",
-    // },
-  });
-  const { register, handleSubmit, formState } = form;
+  const status = useSelector((state) => state.companyRegister.status);
+  const cities = useSelector((state) => state.globalData.cities.citiesList);
+  const router = useRouter();
+
+  console.log(cities);
+  const dispatch = useDispatch();
+  const form = useForm();
+  const { register, handleSubmit, formState, watch } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(companyRegister(data));
   };
   const isNumeric = (value) => /^\d+$/.test(value);
   const passwordRegex = /^(?=.*[0-9]).{8,}$/;
+  const password = watch("password", "");
+  useEffect(() => {
+    if (status === "succeeded") {
+      router.push("/signin");
+    }
+  }, [status]);
+
+  useEffect(() => {
+    dispatch(getCitiesList());
+  }, []);
   return (
     <div className="my- space-y-3 px-2  mb-14">
       <form
@@ -140,8 +158,49 @@ const CompanySignUp = () => {
           />
           <p className="text-red-500 mt-1">{errors.foundedAt?.message}</p>
         </div>
-
-        <div className="md:col-span-2">
+        <div>
+          <p className="text-lg mb-1">City</p>
+          <select
+            name="city"
+            {...register("city", {
+              required: "Please select a city",
+            })}
+            className={`border-2 p-[11px]  rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
+              errors.city && "border-red-500 focus:border-red-500"
+            }`}
+            min="1995-01-01"
+          >
+            <option value="" disabled selected>
+              select a city
+            </option>
+            {cities &&
+              cities.map((city) => {
+                return <option value={city.id}>{city.name}</option>;
+              })}
+          </select>
+          <p className="text-red-500 mt-1">{errors.city?.message}</p>
+        </div>
+        <div>
+          <p className="text-lg mb-1">number of employes</p>
+          <input
+            placeholder="numberOfEmployes"
+            name="numberOfEmployes"
+            {...register("numberOfEmployes", {
+              required: {
+                value: true,
+                message: "please enter number of employes",
+              },
+            })}
+            type="text"
+            className={`border-2 p-3 rounded-lg focus:outline-none w-full   focus:border-darkBlue ${
+              errors.numberOfEmployes && "border-red-500 focus:border-red-500"
+            }`}
+          />
+          <p className="text-red-500 mt-1">
+            {errors.numberOfEmployes?.message}
+          </p>
+        </div>
+        {/* <div className="md:col-span-2">
           <p className="text-lg mb-1">About</p>
           <textarea
             placeholder="About Company"
@@ -162,7 +221,7 @@ const CompanySignUp = () => {
             }`}
           />
           <p className="text-red-500 mt-1">{errors.about?.message}</p>
-        </div>
+        </div> */}
         <Button className="col-span-2 h-10 w-full mt-4">Sign Up</Button>
       </form>
     </div>

@@ -32,7 +32,7 @@ export const getCompanyData = createAsyncThunk(
         "http://127.0.0.1:8000/company/profile/",
         {
           headers: {
-            "X-Auth-Token": `Bearer ${localStorage.getItem("token")}`,
+            auth: `Bearer ${localStorage.getItem("token")}`,
             "Content-Type": "application/json", // Specify content type as JSON
           },
         }
