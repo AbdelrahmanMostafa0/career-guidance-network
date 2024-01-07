@@ -12,6 +12,7 @@ import companyLoginReducer from "./features/company/companyLoginSlice";
 import globalDataReducer from "./features/getData/globalDataSlice";
 import experienceReducer from "./features/user/experienceSlice";
 import companyRegisterReducer from "./features/company/companyRegisterSlice";
+import companyJobsReducer from "./features/company/companyJobsSlice";
 export const store = configureStore({
   reducer: {
     login: loginReducer,
@@ -25,6 +26,7 @@ export const store = configureStore({
     globalData: globalDataReducer,
     experience: experienceReducer,
     companyRegister: companyRegisterReducer,
+    companyJobs: companyJobsReducer,
     // userSideData: userDataSlice,
   },
   //   middleware: [thunkMiddleware],
