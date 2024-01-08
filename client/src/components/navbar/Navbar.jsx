@@ -3,18 +3,19 @@ import { useSelector } from "react-redux";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import UserMenu from "./UserMenu";
 import SideBar from "./SideBar";
+import SearchBar from "./SearchBar";
 
 const Navbar = () => {
   const userData = useSelector((state) => state.userData.userData);
   return (
     <nav className="px-5 py-3 sm:py-5  border-b  bg-white z-50 sticky top-0">
       {/* logo and links */}
-      <div className="md:w-[90%] max-w-[1800px] flex items-center justify-between mx-auto">
+      <div className="md:w-[90%] max-w-[1800px] flex gap-3 items-center justify-between mx-auto">
         <div className="flex items-center gap-10">
           {/* logo */}
           <Link href={"/"} className="flex gap-2 items-center">
             <img src="/logo.svg" className="w-[40px] sm:w-[65px]" alt="" />
-            <p className="text-3xl text-lighterGreen font-bold tracking-wider">
+            <p className="text-3xl text-darkBlue font-bold tracking-wider">
               CGN
             </p>
           </Link>
@@ -35,6 +36,11 @@ const Navbar = () => {
           </div>
         </div>
         {/* Sign up sign in */}
+        {userData && (
+          <div className="hidden sm:block w-7/12 md:w-5/12">
+            <SearchBar />
+          </div>
+        )}
         <div className="flex items-center gap-3">
           {!userData ? (
             <>
@@ -53,7 +59,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <div className="relative">
+              <div className="relative w-fit">
                 <UserMenu
                   title={userData.firstName + " " + userData.lastName}
                   openBtn={

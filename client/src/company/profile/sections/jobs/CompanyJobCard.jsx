@@ -17,7 +17,7 @@ const CompanyJobCard = ({ job }) => {
     <div className="border w-full p-3 pb-1 rounded-md bg-white drop-shadow-md space-y-3">
       {" "}
       <div className="flex justify-between items-center">
-        <h3 className=" text-lg font-semibold">{job.title} </h3>
+        <h3 className=" text-lg font-semibold">{job.title.name} </h3>
         {/* <p className="text-xs">{formatDate(job.createdAt)}</p> */}
         <p className="text-xs">
           {" "}
@@ -33,10 +33,10 @@ const CompanyJobCard = ({ job }) => {
         {job.skills.slice(0, 4).map((skill) => {
           return (
             <p
-              key={skill}
+              key={skill.id}
               className="px-3 rounded-md py-[1px] text-sm bg-gray-200"
             >
-              {skill}
+              {skill.name}
             </p>
           );
         })}

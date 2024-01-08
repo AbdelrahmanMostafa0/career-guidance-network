@@ -6,7 +6,7 @@ const CompanyJobDetails = ({ job }) => {
       <div className="flex items-center justify-between">
         {" "}
         <h3 className="text-xl font-semibold">
-          {job.title + " - " + job?.employment_type}
+          {job.title.name + " - " + job?.employment_type}
         </h3>
         <ReactTimeAgo date={new Date(job.createdAt)} locale="en-US" />
       </div>
@@ -20,10 +20,10 @@ const CompanyJobDetails = ({ job }) => {
           {job.skills.map((skill) => {
             return (
               <p
-                key={skill}
+                key={skill.id}
                 className="px-3 rounded-md py-[1px] text-sm bg-gray-200"
               >
-                {skill}
+                {skill.name}
               </p>
             );
           })}
