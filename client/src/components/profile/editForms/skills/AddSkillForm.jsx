@@ -35,9 +35,6 @@ const AddSkillForm = () => {
 
     setFilteredSkills(null);
   };
-  //   console.log(skills);
-  //   console.log(filteredSkills);
-  //   console.log(selectedSkills);
   const removeSkill = (skill) => {
     const newSkillsArr = selectedSkills.filter((skills) => skills !== skill);
     setSelectedSkills(newSkillsArr);
@@ -50,10 +47,10 @@ const AddSkillForm = () => {
       try {
         // Dispatch the addSkills action and wait for it to complete
         await dispatch(addSkills({ skills: skillsId }));
-        if (addSkillStatus === "succeeded") {
-          setSelectedSkills([]);
-        }
+
+        setSelectedSkills([]);
         dispatch(getUserData());
+
         // After addSkills is completed, dispatch getUserData
       } catch (error) {
         // Handle errors if necessary
@@ -100,7 +97,10 @@ const AddSkillForm = () => {
           selectedSkills.length > 0 &&
           selectedSkills.map((skill) => {
             return (
-              <p className="border rounded-full t px-2 py-[2px] flex gap-2 justify-between items-center">
+              <p
+                key={skill?.id}
+                className="border rounded-full t px-2 py-[2px] flex gap-2 justify-between items-center"
+              >
                 {skill.name}{" "}
                 <button onClick={() => removeSkill(skill)}>
                   <CloseIcon className="text-sm hover:text-red-500" />

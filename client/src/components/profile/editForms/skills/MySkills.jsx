@@ -20,14 +20,17 @@ const MySkills = () => {
   };
   // deleteSkill
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 mt-3">
       {userData.skills.map((skill) => {
         return (
-          <div className="border rounded-full t px-2 py-[2px] flex gap-2 justify-between items-center">
-            <p>{skill}</p>
+          <div
+            key={skill.id}
+            className="border rounded-full t px-3 py-[2px] bg-white drop-shadow-sm flex gap-2 justify-between items-center"
+          >
+            <p>{skill.name}</p>
             <button
               onClick={() => {
-                handleDelete(skill);
+                handleDelete(skill.id);
               }}
             >
               <CloseIcon className="text-sm hover:text-red-500" />

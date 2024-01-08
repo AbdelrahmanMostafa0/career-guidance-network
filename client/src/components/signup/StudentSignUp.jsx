@@ -6,7 +6,6 @@ const StudentSignUp = () => {
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
-    // console.log(data);
     userRgister(data);
   };
   return (

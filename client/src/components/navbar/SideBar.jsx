@@ -22,21 +22,33 @@ const SideBar = ({ openBtn }) => {
               <div className="text-2xl flex  gap-2">
                 <Link href={"/profile"}>
                   {" "}
-                  <img
-                    src={userData.profileImgUrl || "/avatar.jpg"}
-                    className="w-12 rounded-full h-12 object-cover"
-                    alt=""
-                  />
+                  {userData?.isCompany ? (
+                    <img
+                      src={userData.imgUrl || "/avatar.jpg"}
+                      className="w-12 rounded-full h-12 object-cover"
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      src={userData.profileImgUrl || "/avatar.jpg"}
+                      className="w-12 rounded-full h-12 object-cover"
+                      alt=""
+                    />
+                  )}
                 </Link>
 
                 <div className="mt-2">
                   <Link href={"/profile"}>
                     <p className="text-2xl capitalize">
                       {" "}
-                      {userData.firstName + " " + userData.lastName}
+                      {userData?.isCompany
+                        ? userData.name
+                        : userData?.firstName + " " + userData?.lastName}
                     </p>
                   </Link>
-                  <p className="text-sm text-slate-500">{userData.title}</p>
+                  <p className="text-sm text-slate-500">
+                    {userData?.title?.name}
+                  </p>
                 </div>
               </div>
             </SheetTitle>

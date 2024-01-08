@@ -1,13 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
 const initialState = {
   user: null,
   token: null,
-  status: "idle", // ? "idle" | "loading" | "succeeded" |"failed"
+  status: "idle", // "idle" | "loading" | "succeeded" | "failed"
+  error: null,
 };
+
 export const userLogin = createAsyncThunk(
   "login/userLogin",
-  async (userData) => {
+  async (userData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/user/login/",
@@ -18,14 +21,20 @@ export const userLogin = createAsyncThunk(
           },
         }
       );
+
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("isAuth", true);
+      localStorage.setItem("isCompany", false);
+
+      return response.data; // Return the response data on success
     } catch (error) {
-      // console.log(error.response.data);
-      throw error.response.data;
+      // Use rejectWithValue to set the error payload in the rejected action
+      return rejectWithValue(
+        error.response ? error.response.data : "Network error"
+      );
     }
   }
 );
+
 const loginSlice = createSlice({
   name: "login",
   initialState,
@@ -41,12 +50,16 @@ const loginSlice = createSlice({
     builder
       .addCase(userLogin.pending, (state, action) => {
         state.status = "loading";
+        state.error = null; // Reset the error state when starting the request
       })
       .addCase(userLogin.fulfilled, (state, action) => {
         state.status = "succeeded";
+        state.error = null; // Reset the error state on success
       })
       .addCase(userLogin.rejected, (state, action) => {
         state.status = "failed";
+        state.error = action.payload; // Set the error in the state
+        console.log(action.payload);
       });
   },
 });

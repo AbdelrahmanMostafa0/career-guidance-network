@@ -10,6 +10,9 @@ const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en.json";
+TimeAgo.addDefaultLocale(en);
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
