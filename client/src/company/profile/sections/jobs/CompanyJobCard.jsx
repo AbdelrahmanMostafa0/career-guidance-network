@@ -43,6 +43,7 @@ const CompanyJobCard = ({ job }) => {
         .....
       </div>
       <Modal
+        className={"overflow-auto"}
         openBtn={
           <div className="w-full mx-auto text-center cursor-pointer  py-1">
             Full Details <ArrowRightAltIcon />
