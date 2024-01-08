@@ -1,3 +1,4 @@
+import { userRgister } from "@/api/userApis";
 import { useForm } from "react-hook-form";
 
 const StudentSignUp = () => {
@@ -5,7 +6,8 @@ const StudentSignUp = () => {
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
+    userRgister(data);
   };
   return (
     <form

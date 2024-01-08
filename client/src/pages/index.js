@@ -1,11 +1,11 @@
 import Home from "@/components/HomePage/Home";
-import ViewJob from "@/components/veiwjob/ViewJob";
+
 import Newsfeed from "@/components/newsfeed/Newsfeed";
+import { useSelector } from "react-redux";
 
 export default function index() {
+  const userData = useSelector((state) => state.userData.userData);
   return (
-    <div className="min-h-[90dvh]">
-      <Newsfeed />
-    </div>
+    <div className="min-h-[90dvh]">{userData ? <Newsfeed /> : <Home />}</div>
   );
 }

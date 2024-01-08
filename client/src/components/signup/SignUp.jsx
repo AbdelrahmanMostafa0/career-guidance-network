@@ -1,94 +1,66 @@
-import Link from "next/link";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import StudentSignUp from "./StudentSignUp";
+import { useEffect, useState } from "react";
 import CompanySignUp from "./CompanySignUp";
+import UserSignUpForm from "./UserSignUpForm";
+import { getCities, getTitles } from "@/api/userApis";
+import { useDispatch, useSelector } from "react-redux";
+import { Button } from "@/components/ui/button";
 
 const SignUp = () => {
-  const form = useForm();
   const [userType, setUserType] = useState("student");
   const ChangeUserType = (type) => {
     setUserType(type);
   };
+  const [titles, setTitles] = useState();
+  const [cities, setCities] = useState();
+  const dispatch = useDispatch();
+  const getAllCities = async () => {
+    const cities = await getCities();
+    setCities(cities);
+  };
+  const getAllTitles = async () => {
+    const titles = await getTitles();
+    setTitles(titles);
+  };
+  useEffect(() => {
+    getAllCities();
+    getAllTitles();
+  }, []);
+  console.log("titles", titles);
+  console.log("cities", cities);
 
   return (
-    <div className="p-4 grid md:grid-cols-2 min-h-[88dvh] ">
-      <div className="col-span-1 w-full h-full bg-lightGreen rounded-3xl md:flex flex-col hidden justify-center items-start space-y-3 px-12">
-        <h3 className="md:text-4xl xl:text-5xl  mb-3 text-white font-semibold">
-          Join CGN - Shape Your Future .
-        </h3>
-        <p className="text-xl leading-relaxed  text-white font-thin w-[80%]">
-          Welcome to CGN, where we empower students to forge their path to
-          success! 🚀 Join our growing community of ambitious individuals and
-          unlock a world of opportunities
-        </p>
+    <div className="my-10 container px-2 mx-auto space-y-4">
+      {/* <h1 className="text-center text-4xl font-semibold text-darkBlue tracking-wider  ">
+        Join us Right Now
+      </h1>
+      <p className="text-xl leading-relaxed   max-w-[700px] mx-auto text-center">
+        Welcome to CGN, where we empower students to forge their path to
+        success! 🚀 Join our growing community of ambitious individuals and
+        unlock a world of opportunities
+      </p> */}
+      <div className="flex justify-center mx-auto gap-3 px-2 md:px-0 items-center max-w-[700px]">
+        <Button
+          onClick={() => ChangeUserType("student")}
+          className={`border-2  border-darkBlue w-full text-white hover:text-white ${
+            userType !== "student" && "bg-transparent text-darkBlue "
+          }`}
+        >
+          student
+        </Button>
+        <Button
+          onClick={() => ChangeUserType("company")}
+          className={`border-2  border-darkBlue w-full text-white hover:text-white ${
+            userType !== "company" && "bg-transparent text-darkBlue "
+          }`}
+        >
+          Company
+        </Button>
       </div>
-      {/* form */}
-      <div className="col-span-1 w-full h-full px-5 md:px-20 flex flex-col justify-center space-y-10">
-        {/* title */}
-        <div className="space-y-3">
-          <h3 className="text-4xl xl:text-6xl font-bold text-darkBlue">
-            Sign Up
-          </h3>
-          <p className="xl:text-xl">
-            Already have an account?{" "}
-            <Link href={"/signin"} className="text-lightGreen font-semibold">
-              Sign in
-            </Link>
-          </p>
-        </div>
-        <div>
-          {/* user type */}
-          <div className="flex flex-col md:flex-row gap-3">
-            <div
-              onClick={() => {
-                ChangeUserType("student");
-              }}
-              className={`w-full border p-3 rounded-lg flex justify-center items-center  gap-2 ${
-                userType === "student" &&
-                "bg-lighterGreenHover border-2 border-lighterGreen"
-              }`}
-            >
-              <div className="w-5 h-5 border rounded-full border-lighterGreen flex items-center justify-center">
-                {userType === "student" && (
-                  <div className="w-3 h-3 bg-lighterGreen rounded-full"></div>
-                )}
-              </div>
-              <p
-                className={`font-semibold text-xl ${
-                  userType === "student" && "text-lighterGreen"
-                }`}
-              >
-                Student
-              </p>
-            </div>
-            <div
-              onClick={() => {
-                ChangeUserType("company");
-              }}
-              className={`w-full border p-3 rounded-lg flex justify-center items-center  gap-2 ${
-                userType === "company" &&
-                "bg-lighterGreenHover border-2 border-lighterGreen"
-              }`}
-            >
-              <div className="w-5 h-5 border rounded-full border-lighterGreen flex justify-center items-center">
-                {userType === "company" && (
-                  <div className="w-3 h-3 bg-lighterGreen rounded-full"></div>
-                )}
-              </div>
-              <p
-                className={`font-semibold text-xl ${
-                  userType === "company" && "text-lighterGreen"
-                }`}
-              >
-                Company
-              </p>
-            </div>
-          </div>
-          {/* name */}
-        </div>
-        {userType === "company" ? <CompanySignUp /> : <StudentSignUp />}
-      </div>
+      {userType === "student" ? (
+        <UserSignUpForm titles={titles} cities={cities} />
+      ) : (
+        <CompanySignUp />
+      )}
     </div>
   );
 };

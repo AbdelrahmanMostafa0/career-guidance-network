@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { AiFillGithub, AiFillLinkedin, AiOutlineGlobal } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin, AiOutlineGlobal } from "react-icons/ai";
 import styles from "../../styles/settings.module.css";
+import { useSelector } from "react-redux";
 
 export default function Settings() {
+  const userData = useSelector((state) => state.userData.userData);
   const [formData, setFormData] = useState({
-    name:"",
-    email:"",
-    CurrentPassword:"",
-    newPassword:"",
-    confirmNewPassword:"",
-    phoneNumber:"",
-    github:"",
-    linkedin:"",
-    website:""
-  })
-  
+    name: userData.firstName + " " + userData.lastName,
+    email: userData.email,
+    CurrentPassword: "",
+    newPassword: "",
+    confirmNewPassword: "",
+    phoneNumber: userData.phoneNumber,
+    github: userData.githubLink,
+    linkedin: userData.linkedinLink,
+    website: "",
+  });
+
   function handleChange(event) {
-    const { name, type, value } = event.target
-    setFormData(prev => {
+    const { name, type, value } = event.target;
+    setFormData((prev) => {
       return {
         ...prev,
-        [name]: value
-      }
-    })
+        [name]: value,
+      };
+    });
   }
 
   return (
@@ -31,21 +33,29 @@ export default function Settings() {
       <div className={styles.deco}>
         <header className={styles.header}>
           <div className={styles.profileImgContainer}>
-            <img className={styles.profileImg} src="profile.png" />
+            <img
+              className={styles.profileImg}
+              src={userData.profileImgUrl || "/avatar.jpg"}
+            />
           </div>
-          <Link href="/profile" className={styles.btn}>View Profile</Link>
-        </header> 
+          <Link href="/profile" className={styles.btn}>
+            View Profile
+          </Link>
+        </header>
       </div>
       <main className={`${styles.main} ${styles.mainGrid}`}>
         <section className={styles.section}>
           <div className={styles.info}>
             <h2>Personal Info</h2>
-            <p>Info that will represent you in the website like name and user name</p>
+            <p>
+              Info that will represent you in the website like name and user
+              name
+            </p>
           </div>
           <form>
             <label htmlFor="name">Name</label>
             <input
-              id="name" 
+              id="name"
               name="name"
               type="text"
               value={formData.name}
@@ -53,7 +63,7 @@ export default function Settings() {
             />
             <label htmlFor="email">Email</label>
             <input
-              id="email"  
+              id="email"
               name="email"
               type="email"
               value={formData.email}
@@ -63,12 +73,14 @@ export default function Settings() {
             <input
               id="phoneNumber"
               name="phoneNumber"
-              type="number"
+              type="text"
               value={formData.phoneNumber}
               onChange={handleChange}
-              />
+            />
             <div className={styles.btnWrapper}>
-              <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
+              <button className={`${styles.btn} ${styles.saveBtn}`}>
+                Save Changes
+              </button>
               <button className={styles.btn}>Cancel</button>
             </div>
           </form>
@@ -80,15 +92,21 @@ export default function Settings() {
             <p>Let people know more about you</p>
           </div>
           <form>
-            <label className={styles.label} htmlFor="github"><AiFillGithub className={styles.icon} />GitHub</label>
-              <input
-                id="github"
-                name="github"
-                type="url"
-                value={formData.github}
-                onChange={handleChange}
-              />
-            <label className={styles.label} htmlFor="linkedin"><AiFillLinkedin className={styles.icon} />LinkedIn</label>
+            <label className={styles.label} htmlFor="github">
+              <AiFillGithub className={styles.icon} />
+              GitHub
+            </label>
+            <input
+              id="github"
+              name="github"
+              type="url"
+              value={formData.github}
+              onChange={handleChange}
+            />
+            <label className={styles.label} htmlFor="linkedin">
+              <AiFillLinkedin className={styles.icon} />
+              LinkedIn
+            </label>
             <input
               id="linkedin"
               name="linkedin"
@@ -96,7 +114,10 @@ export default function Settings() {
               value={formData.linkedin}
               onChange={handleChange}
             />
-            <label className={styles.label} htmlFor="website"><AiOutlineGlobal className={styles.icon} />website</label>
+            <label className={styles.label} htmlFor="website">
+              <AiOutlineGlobal className={styles.icon} />
+              website
+            </label>
             <input
               id="website"
               name="website"
@@ -105,7 +126,9 @@ export default function Settings() {
               onChange={handleChange}
             />
             <div className={styles.btnWrapper}>
-              <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
+              <button className={`${styles.btn} ${styles.saveBtn}`}>
+                Save Changes
+              </button>
               <button className={styles.btn}>Cancel</button>
             </div>
           </form>
@@ -117,15 +140,19 @@ export default function Settings() {
             <p>Enter your current password to update your password</p>
           </div>
           <form>
-          <label className={styles.label} htmlFor="CurrentPassword">Current Password</label>
-              <input
-                id="CurrentPassword"
-                name="CurrentPassword"
-                type="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-            <label className={styles.label} htmlFor="newPassword">New Password</label>
+            <label className={styles.label} htmlFor="CurrentPassword">
+              Current Password
+            </label>
+            <input
+              id="CurrentPassword"
+              name="CurrentPassword"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+            <label className={styles.label} htmlFor="newPassword">
+              New Password
+            </label>
             <input
               id="newPassword"
               name="newPassword"
@@ -133,7 +160,9 @@ export default function Settings() {
               value={formData.newPassword}
               onChange={handleChange}
             />
-            <label className={styles.label} htmlFor="confirmNewPassword">Confirm New Password</label>
+            <label className={styles.label} htmlFor="confirmNewPassword">
+              Confirm New Password
+            </label>
             <input
               id="confirmNewPassword"
               name="confirmNewPassword"
@@ -142,7 +171,9 @@ export default function Settings() {
               onChange={handleChange}
             />
             <div className={styles.btnWrapper}>
-              <button className={`${styles.btn} ${styles.saveBtn}`}>Save Changes</button>
+              <button className={`${styles.btn} ${styles.saveBtn}`}>
+                Save Changes
+              </button>
               <button className={styles.btn}>Cancel</button>
             </div>
           </form>
@@ -151,11 +182,16 @@ export default function Settings() {
         <section className={`${styles.section} ${styles.deleteSection}`}>
           <div className={styles.deleteInfo}>
             <h2>Delete Account?</h2>
-            <p>Note that if u deleted your account you will lose all your data and progress</p>
+            <p>
+              Note that if u deleted your account you will lose all your data
+              and progress
+            </p>
           </div>
-          <button className={`${styles.btn} ${styles.deleteBtn}`}>Delete</button>
+          <button className={`${styles.btn} ${styles.deleteBtn}`}>
+            Delete
+          </button>
         </section>
       </main>
     </div>
   );
-};
+}

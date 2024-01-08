@@ -61,9 +61,9 @@ const Projects = () => {
   return (
     <div className="p-5 bg-white w-full space-y-2 rounded-lg pb-10">
       <h3 className="font-bold text-xl text-center mb-10">Projects</h3>
-      <div className="grid md:grid-cols-4 justify-center items-center justify-items-center gap-4 md:gap-x-0 gap-y-6 md:m-10  ">
-        {projects.map((project) => (
-          <PojectCard data={project} />
+      <div className="flex flex-wrap justify-center  xl:justify-between items-center justify-items-center gap-10 md:gap-x-0 gap-y-6 md:m-10  ">
+        {projects.map((project, index) => (
+          <PojectCard data={project} key={index} />
         ))}
         <div className="w-[350px] overflow-hidden space-y-3 rounded-2xl drop-shadow-lg  bg-white  border h-full flex flex-col justify-center items-center min-h-[435px]">
           {/* <AddProject /> */}
