@@ -24,9 +24,9 @@ const AboutMe = () => {
         <div className="flex justify-center items-center">
           <Modal
             openBtn={
-              <button className="text-lightGreen text-center underline">
+              <div className="text-lightGreen text-center underline">
                 show more
-              </button>
+              </div>
             }
           >
             <p className="leading-loose">{data.about}</p>

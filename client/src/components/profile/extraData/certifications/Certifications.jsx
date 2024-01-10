@@ -20,11 +20,7 @@ const Certifications = () => {
           <div className="flex items-center gap-1">
             <Modal
               className={"overflow-auto"}
-              openBtn={
-                <button className=" right-3">
-                  <BorderColorOutlinedIcon className="text-lg" />
-                </button>
-              }
+              openBtn={<BorderColorOutlinedIcon className="text-lg" />}
             >
               {" "}
               <EditCertifications />
@@ -33,11 +29,7 @@ const Certifications = () => {
             <Modal
               className={"overflow-auto"}
               title={"add certificat"}
-              openBtn={
-                <button>
-                  <ControlPointOutlinedIcon className="text-xl" />
-                </button>
-              }
+              openBtn={<ControlPointOutlinedIcon className="text-xl" />}
             >
               {" "}
               <AddCertification />
@@ -60,11 +52,7 @@ const Certifications = () => {
             <Modal
               className={"overflow-auto"}
               title={"add certificat"}
-              openBtn={
-                <button>
-                  <ControlPointOutlinedIcon className="text-5xl" />
-                </button>
-              }
+              openBtn={<ControlPointOutlinedIcon className="text-5xl" />}
             >
               {" "}
               <AddCertification />

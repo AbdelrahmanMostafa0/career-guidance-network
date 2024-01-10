@@ -33,11 +33,7 @@ const Education = () => {
 
             <Modal
               className={"overflow-auto"}
-              openBtn={
-                <button className=" right-3">
-                  <BorderColorOutlinedIcon className="text-lg" />
-                </button>
-              }
+              openBtn={<BorderColorOutlinedIcon className="text-lg" />}
             >
               {" "}
               <EditEducation />

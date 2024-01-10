@@ -54,11 +54,7 @@ const Experience = () => {
           <Modal
             className={"overflow-auto"}
             title={"Add Experience"}
-            openBtn={
-              <button>
-                <ControlPointOutlinedIcon className="text-5xl" />
-              </button>
-            }
+            openBtn={<ControlPointOutlinedIcon className="text-5xl" />}
           >
             {" "}
             <AddExp />

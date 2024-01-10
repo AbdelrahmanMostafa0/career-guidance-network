@@ -14,11 +14,7 @@ const Skills = () => {
         {!!userData?.skills.length > 0 && (
           <Modal
             title={"Edit Skill"}
-            openBtn={
-              <button className=" right-3">
-                <BorderColorOutlinedIcon className="text-lg" />
-              </button>
-            }
+            openBtn={<BorderColorOutlinedIcon className="text-lg" />}
           >
             {" "}
             <AddSkillForm />

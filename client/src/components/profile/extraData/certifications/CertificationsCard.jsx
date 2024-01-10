@@ -22,10 +22,10 @@ const CertificationsCard = ({ certification, edit }) => {
             className={"overflow-auto"}
             title={"Edit certificat"}
             openBtn={
-              <button className="w-full py-1 rounded-md bg-gray-300 hover:bg-gray-200 duration-150 flex items-center gap-1 justify-center border">
+              <div className="w-full py-1 rounded-md bg-gray-300 hover:bg-gray-200 duration-150 flex items-center gap-1 justify-center border">
                 <EditNoteIcon className="text-blue-500 hover:text-blue-400" />
                 Edit
-              </button>
+              </div>
             }
             trigerStyle={"w-full"}
           >
@@ -36,10 +36,10 @@ const CertificationsCard = ({ certification, edit }) => {
             className={"overflow-auto"}
             title={"delete certificat"}
             openBtn={
-              <button className="w-full py-1 rounded-md bg-gray-300 hover:bg-gray-200 duration-150 flex items-center gap-1 justify-center border ">
+              <div className="w-full py-1 rounded-md bg-gray-300 hover:bg-gray-200 duration-150 flex items-center gap-1 justify-center border ">
                 <DeleteIcon className="text-red-500 hover:text-red-400" />
                 delete
-              </button>
+              </div>
             }
             trigerStyle={"w-full"}
           >

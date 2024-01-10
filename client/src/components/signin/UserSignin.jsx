@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 const UserSignin = () => {
   const router = useRouter();
   const status = useSelector((state) => state.login.status);
+  const error = useSelector((state) => state.login.error);
   const form = useForm();
   const dispatch = useDispatch();
   const { register, handleSubmit, formState } = form;
@@ -78,7 +79,11 @@ const UserSignin = () => {
         />
         <p className="text-red-500 mt-1">{errors.password?.message}</p>
       </div>
-
+      {error && (
+        <p className="text-red-500 mt-1">
+          Wrong Email or password. Try again or create an account
+        </p>
+      )}{" "}
       <Button className="col-span-2 h-12 w-full mt-4">Sign in</Button>
     </form>
   );

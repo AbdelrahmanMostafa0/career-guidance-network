@@ -18,11 +18,7 @@ const Projects = () => {
           <Modal
             className={"overflow-auto"}
             title={"Add Project "}
-            openBtn={
-              <button className="  right-3">
-                <AddCircleOutlineIcon className="text-2xl" />
-              </button>
-            }
+            openBtn={<AddCircleOutlineIcon className="text-2xl" />}
           >
             <AddProjectForm />
           </Modal>
@@ -40,11 +36,7 @@ const Projects = () => {
           <Modal
             className={"overflow-auto"}
             title={"Add Project "}
-            openBtn={
-              <button className="  right-3">
-                <AddCircleOutlineIcon className="text-5xl" />
-              </button>
-            }
+            openBtn={<AddCircleOutlineIcon className="text-5xl" />}
           >
             <AddProjectForm />
           </Modal>

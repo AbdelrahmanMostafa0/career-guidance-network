@@ -58,7 +58,7 @@ const loginSlice = createSlice({
       })
       .addCase(userLogin.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.payload; // Set the error in the state
+        state.error = action.payload.error.non_field_errors[0]; // Set the error in the state
         console.log(action.payload);
       });
   },
