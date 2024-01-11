@@ -54,10 +54,26 @@ const SideBar = ({ openBtn }) => {
             </SheetTitle>
           )}
         </SheetHeader>
-        <div className="space-y-4 my-5 grid text-center">
+        <div className="space-y-4 my-5 grid text-center capitalize">
           <Link href={"/"} className="w-full py-2 border rounded-full text-xl">
             Home
           </Link>
+          {userData && (
+            <>
+              <Link
+                href={"/profile"}
+                className="w-full py-2 border rounded-full text-xl"
+              >
+                Profile
+              </Link>
+              <Link
+                href={"/search"}
+                className="w-full py-2 border rounded-full text-xl"
+              >
+                search
+              </Link>
+            </>
+          )}
           <Link href={"/"} className="w-full py-2 border rounded-full text-xl">
             Roadmaps
           </Link>

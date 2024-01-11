@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTitlesList } from "@/redux/features/getData/globalDataSlice";
 const SearchBar = () => {
   const [searchBarValue, setSearchBarValue] = useState("");
-  const [selectedTitle, setSelectedTitle] = useState(null);
   const [filterdTitles, setFilterdTitles] = useState(null);
   const router = useRouter();
   const dispatch = useDispatch();
