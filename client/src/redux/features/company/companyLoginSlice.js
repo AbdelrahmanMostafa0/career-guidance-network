@@ -8,7 +8,7 @@ export const CompanyLogin = createAsyncThunk(
   async (companyData) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/company/login/",
+        `${process.env.NEXT_PUBLIC_API_URL}/company/login/`,
         companyData,
         {
           headers: {

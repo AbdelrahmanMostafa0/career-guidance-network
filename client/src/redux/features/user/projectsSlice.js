@@ -25,12 +25,15 @@ export const getProjects = createAsyncThunk(
   "userProjects/getProjects",
   async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/project/user/", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "application/json", // Specify content type as JSON
-        },
-      });
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/project/user/`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json", // Specify content type as JSON
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       throw error.response.data;
@@ -45,7 +48,7 @@ export const addProject = createAsyncThunk(
   async (projectData) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/project/add/",
+        `${process.env.NEXT_PUBLIC_API_URL}/project/add/`,
         projectData,
         {
           headers: {
@@ -69,7 +72,7 @@ export const editProject = createAsyncThunk(
     console.log("project id", projectId);
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/project/edit/${projectId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/project/edit/${projectId}/`,
         projectData,
         {
           headers: {
@@ -92,7 +95,7 @@ export const deleteProject = createAsyncThunk(
   async (projectId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/project/delete/${projectId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/project/delete/${projectId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -1,4 +1,4 @@
-import CompanyHomePage from "@/company/home/CompanyHomePage";
+import CompanyHomePage from "@/components/company/home/CompanyHomePage";
 import Home from "@/components/HomePage/Home";
 
 import Newsfeed from "@/components/newsfeed/Newsfeed";

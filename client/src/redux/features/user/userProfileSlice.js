@@ -11,12 +11,15 @@ export const getUserData = createAsyncThunk(
   "userData/getUserData",
   async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/user/profile/", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "application/json", // Specify content type as JSON
-        },
-      });
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/user/profile/`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json", // Specify content type as JSON
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       // console.log(error.response.data);
@@ -29,7 +32,7 @@ export const getCompanyData = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/company/profile/",
+        `${process.env.NEXT_PUBLIC_API_URL}/company/profile/`,
         {
           headers: {
             auth: `Bearer ${localStorage.getItem("token")}`,

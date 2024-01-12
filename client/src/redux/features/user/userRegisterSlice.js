@@ -10,7 +10,7 @@ export const userRegister = createAsyncThunk(
   async (userData) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/user/register/",
+        `${process.env.NEXT_PUBLIC_API_URL}/user/register/`,
         userData,
         {
           headers: {

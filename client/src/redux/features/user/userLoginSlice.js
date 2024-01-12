@@ -13,7 +13,7 @@ export const userLogin = createAsyncThunk(
   async (userData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/user/login/",
+        `${process.env.NEXT_PUBLIC_API_URL}/user/login/`,
         userData,
         {
           headers: {

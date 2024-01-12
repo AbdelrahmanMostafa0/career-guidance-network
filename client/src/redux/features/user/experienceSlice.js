@@ -24,12 +24,15 @@ const initialState = {
 // ---------------------------------------------------------------
 export const getExp = createAsyncThunk("userExp/getExp", async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:8000/experience/user/", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json", // Specify content type as JSON
-      },
-    });
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/experience/user/`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json", // Specify content type as JSON
+        },
+      }
+    );
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -41,7 +44,7 @@ export const getExp = createAsyncThunk("userExp/getExp", async () => {
 export const addExp = createAsyncThunk("userExp/addExp", async (expData) => {
   try {
     const response = await axios.post(
-      "http://127.0.0.1:8000/experience/add/",
+      `${process.env.NEXT_PUBLIC_API_URL}/experience/add/`,
       expData,
       {
         headers: {
@@ -63,7 +66,7 @@ export const editExp = createAsyncThunk(
   async ({ expData, expId }) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/experience/edit/${expId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/experience/edit/${expId}/`,
         expData,
         {
           headers: {
@@ -86,7 +89,7 @@ export const deleteExp = createAsyncThunk(
   async (expId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/experience/delete/${expId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/experience/delete/${expId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

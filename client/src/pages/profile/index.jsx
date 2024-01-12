@@ -1,4 +1,4 @@
-import CompanyProfile from "@/company/profile/CompanyProfile";
+import CompanyProfile from "@/components/company/profile/CompanyProfile";
 import Profile from "@/components/profile/Profile";
 import { useSelector } from "react-redux";
 
