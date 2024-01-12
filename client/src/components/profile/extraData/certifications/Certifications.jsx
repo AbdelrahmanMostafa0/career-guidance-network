@@ -42,7 +42,7 @@ const Certifications = () => {
           certification.slice(0, 2).map((certification) => {
             return (
               <CertificationsCard
-                key={certification.name}
+                key={certification.id}
                 certification={certification}
               />
             );
@@ -65,9 +65,9 @@ const Certifications = () => {
           <Modal
             className={"overflow-auto"}
             openBtn={
-              <button className=" text-lightGreen text-center underline ">
+              <div className=" text-lightGreen text-center underline ">
                 Show {certification.length - 2} more certification
-              </button>
+              </div>
             }
           >
             <div className="space-y-3">
@@ -77,7 +77,7 @@ const Certifications = () => {
                 return (
                   <>
                     <CertificationsCard
-                      key={certification.name}
+                      key={certification.id}
                       certification={certification}
                     />{" "}
                     <hr />
