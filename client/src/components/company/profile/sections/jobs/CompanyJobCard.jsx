@@ -3,16 +3,6 @@ import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import CompanyJobDetails from "./CompanyJobDetails";
 import ReactTimeAgo from "react-time-ago";
 const CompanyJobCard = ({ job }) => {
-  function formatDate(inputDateString) {
-    var dateObject = new Date(inputDateString);
-
-    var year = dateObject.getFullYear();
-    var month = ("0" + (dateObject.getMonth() + 1)).slice(-2);
-    var day = ("0" + dateObject.getDate()).slice(-2);
-
-    var formattedDate = year + "-" + month + "-" + day;
-    return formattedDate;
-  }
   return (
     <div className="border w-full p-3 pb-1 rounded-md bg-white drop-shadow-md space-y-3">
       {" "}
