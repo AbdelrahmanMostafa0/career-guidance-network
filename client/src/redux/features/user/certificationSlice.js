@@ -26,7 +26,7 @@ export const getCertification = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/certification/user/",
+        `${process.env.NEXT_PUBLIC_API_URL}/certification/user/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,7 +45,7 @@ export const addCertification = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/certification/add/",
+        `${process.env.NEXT_PUBLIC_API_URL}/certification/add/`,
         data,
         {
           headers: {
@@ -65,7 +65,7 @@ export const editCertification = createAsyncThunk(
   async ({ certificationData, certificationId }) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/certification/edit/${certificationId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/certification/edit/${certificationId}/`,
         certificationData,
         {
           headers: {
@@ -85,7 +85,7 @@ export const deleteCertification = createAsyncThunk(
   async (certificationId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/certification/delete/${certificationId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/certification/delete/${certificationId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

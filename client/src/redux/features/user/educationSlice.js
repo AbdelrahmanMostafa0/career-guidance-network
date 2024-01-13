@@ -26,7 +26,7 @@ export const getEducation = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/education/user/",
+        `${process.env.NEXT_PUBLIC_API_URL}/education/user/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,7 +45,7 @@ export const addEducation = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/education/add/",
+        `${process.env.NEXT_PUBLIC_API_URL}/education/add/`,
         data,
         {
           headers: {
@@ -65,7 +65,7 @@ export const editEducation = createAsyncThunk(
   async ({ educationData, educationId }) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/education/edit/${educationId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/education/edit/${educationId}/`,
         educationData,
         {
           headers: {
@@ -85,7 +85,7 @@ export const deleteEducation = createAsyncThunk(
   async (educationId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/education/delete/${educationId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/education/delete/${educationId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

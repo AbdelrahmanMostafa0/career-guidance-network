@@ -17,7 +17,9 @@ const initialState = {
 };
 export const getSkills = createAsyncThunk("skillsSlice/getSkills", async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:8000/skill/list-all/");
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/skill/list-all/`
+    );
     return response.data;
   } catch (error) {
     throw error.response.data;
@@ -28,7 +30,7 @@ export const addSkills = createAsyncThunk(
   async (skills) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/user/add-bulk-skills/",
+        `${process.env.NEXT_PUBLIC_API_URL}/user/add-bulk-skills/`,
         skills,
         {
           headers: {
@@ -47,7 +49,7 @@ export const deleteSkill = createAsyncThunk(
   async (skillId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/user/delete-skill/${skillId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/user/delete-skill/${skillId}/`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

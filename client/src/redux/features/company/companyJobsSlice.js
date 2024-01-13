@@ -29,12 +29,15 @@ export const getJobs = createAsyncThunk(
   "companyJobsSlice/getJobs",
   async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/company/jobs/", {
-        headers: {
-          auth: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "application/json", // Specify content type as JSON
-        },
-      });
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/company/jobs/`,
+        {
+          headers: {
+            auth: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json", // Specify content type as JSON
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       throw error.response.data;
@@ -46,7 +49,7 @@ export const addJob = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/job/add/",
+        `${process.env.NEXT_PUBLIC_API_URL}/job/add/`,
         data,
         {
           headers: {
@@ -66,7 +69,7 @@ export const editJob = createAsyncThunk(
   async ({ jobData, jobId }) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/job/edit/${jobId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/job/edit/${jobId}/`,
         jobData,
         {
           headers: {
@@ -86,7 +89,7 @@ export const deleteJob = createAsyncThunk(
   async (jobId) => {
     try {
       const response = await axios.delete(
-        `http://127.0.0.1:8000/job/delete/${jobId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/job/delete/${jobId}/`,
         {
           headers: {
             auth: `Bearer ${localStorage.getItem("token")}`,
@@ -105,7 +108,7 @@ export const toggleCanApplay = createAsyncThunk(
   async (jobId) => {
     try {
       const response = await axios.put(
-        `http://127.0.0.1:8000/job/change_can_apply/${jobId}/`,
+        `${process.env.NEXT_PUBLIC_API_URL}/job/change_can_apply/${jobId}/`,
         {
           headers: {
             auth: `Bearer ${localStorage.getItem("token")}`,
