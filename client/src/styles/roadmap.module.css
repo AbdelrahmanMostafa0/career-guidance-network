@@ -1,6 +1,9 @@
 .mainContainer {
     min-height: 60vh;
     padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mainContainer h1 {
@@ -15,16 +18,10 @@
 }
 
 .roadmapsContainer {
-    display: grid;
-    /*border: 1px solid magenta;
-    */justify-items: center;
-    /* background-color: #f4f4f4; */
     padding: 2em 0;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    display: grid;
+    justify-items: center;
+    width: 90%;
 }
 
 .roadmap {
