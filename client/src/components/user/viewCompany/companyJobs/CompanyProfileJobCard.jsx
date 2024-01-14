@@ -17,7 +17,12 @@ const CompanyProfileJobCard = ({ jobData }) => {
       <p className="text-slate-600 line-clamp-2">{jobData.about}</p>
       <p>Skills: {jobData.skills.length}</p>
 
-      <Link></Link>
+      <Link
+        className="text-center w-full hover:underline duration-100"
+        href={`/job?job=${jobData.id}&company=${jobData.company.id}`}
+      >
+        More Details
+      </Link>
     </div>
   );
 };

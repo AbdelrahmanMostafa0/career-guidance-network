@@ -15,7 +15,8 @@ const ContactInfo = () => {
         </p>
         <p className="flex items-center gap-2 text-xl">
           <EmailIcon className="text-3xl text-lightBlue" />
-          <span>-</span> <span> {userData?.email}</span>
+          <span>-</span>{" "}
+          <span className="break-words break-all	"> {userData?.email}</span>
         </p>
       </div>
     </ExtraDataContainer>

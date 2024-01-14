@@ -34,3 +34,20 @@ export const getCompanyJobs = async (id) => {
     throw error.response.data;
   }
 };
+
+export const getJobData = async (query) => {
+  const token = localStorage.getItem("token");
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_URL}/job/details/${query.job}/company/${query.company}/`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};

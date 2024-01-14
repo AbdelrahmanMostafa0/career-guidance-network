@@ -30,3 +30,18 @@ export const getUniversities = async () => {
     throw error.response;
   }
 };
+
+export const getHomeFeed = async () => {
+  const token = localStorage.getItem("token");
+
+  try {
+    const response = await axios.get("http://127.0.0.1:8000/job/search", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};
