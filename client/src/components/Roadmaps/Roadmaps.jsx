@@ -23,6 +23,7 @@ export default function Roadmaps () {
         <Link href="#" className={styles.roadmap}><div><p>Cyber Security</p></div></Link>
         <Link href="#" className={styles.roadmap}><div><p>Game DEveloper</p></div></Link>
         <Link href="#" className={styles.roadmap}><div><p>Ux Design</p></div></Link>
+        <Link href="#" className={styles.roadmap}><div><p>React Native</p></div></Link>
       </div>
     </main>
   )
