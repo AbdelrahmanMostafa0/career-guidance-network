@@ -1,4 +1,5 @@
 import React from 'react'
+import RoadmapsContainer from './RoadmapsContainer';
 import Link from "next/link";
 import styles from "../../styles/roadmap.module.css"
 import {
@@ -11,7 +12,7 @@ import {
 
 export default function Roadmaps () {
   return (
-    <main className={styles.mainContainer}>
+    <RoadmapsContainer className={styles.mainContainer}>
       <h1>Developer Roadmaps</h1>
       <div className={styles.roadmapsContainer}>
         <Link href="#" className={styles.roadmap}><div><p>Frontend</p></div></Link>
@@ -25,7 +26,7 @@ export default function Roadmaps () {
         <Link href="#" className={styles.roadmap}><div><p>Ux Design</p></div></Link>
         <Link href="#" className={styles.roadmap}><div><p>React Native</p></div></Link>
       </div>
-    </main>
+    </RoadmapsContainer>
   )
 }
 
