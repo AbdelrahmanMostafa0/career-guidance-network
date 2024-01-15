@@ -27,7 +27,7 @@ export default function Path () {
     return (
         <main className={styles.mainContainer}>
             <h1>{headerState} Roadmap</h1>
-            <p className={styles.subTitle}>This Roadmap will turn you into a hireable developer, and teach you how to nail the job interview. It contains over 70 hours of top-notch tutorials, hundreds of coding challenges, and dozens of real-world projects.</p>
+            <p className={styles.subTitle}>Developer roadmaps are essential guides outlining the key skills and steps for software developers to advance in their careers</p>
             <div className={styles.AccordionContainer}>
             <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">

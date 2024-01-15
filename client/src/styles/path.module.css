@@ -1,5 +1,5 @@
 .mainContainer {
-    padding: 1em;
+    padding: 1.2em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,30 +11,32 @@
     font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 1em;
+    margin-bottom: .3em;
 }
 
 .subTitle {
     max-width:40ch;
     text-align: center;
     letter-spacing: 1px;
+    font-size: .9rem;
 }
 
 .AccordionContainer {
     width: 100%;
     max-width: 600px;
-    margin: 5em 0;
+    margin: 2em 0;
 }
 
-.subTitle {
-    text-align: center;
-    margin-bottom: 1.2em;
+.accordionTrigger {
+    color: #6FCE99;
+    font-weight: bold;
 }
 
 .link {
     display: block;
     margin: 1em;
-    line-height: 1.5em;
+    line-height: 1.7em;
+    text-decoration: underline;
 }
 
 @media(min-width: 850px) {
@@ -55,7 +57,8 @@
     }
 
     .AccordionContainer {
-        max-width: 1100px;
+        max-width: 900px;
+        margin: 4em;
     }
 
     .link {
