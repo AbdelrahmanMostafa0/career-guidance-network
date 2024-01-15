@@ -12,7 +12,7 @@ export default function ViewJob({ jobData }) {
         <div className={`${styles.firstCol} ${styles.flow}`}>
           <div className={`${styles.companyInfo} ${styles.flow}`}>
             <img
-              className={styles.companyLogo}
+              className={"h-52 mx-auto md:mx-0 w-52 rounded-full object-cover "}
               src="companylogo.png"
               alt="company logo"
             />

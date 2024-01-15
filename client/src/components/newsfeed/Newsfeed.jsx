@@ -39,11 +39,6 @@ export default function Newsfeed() {
                   <div className={styles.companyInfo}>
                     <Link href={`/co/${post.company.id}`}>
                       <div className={styles.InnerCompanyInfo}>
-                        <img
-                          className={styles.companyLogo}
-                          src={post.company.imgUrl || `/avatar.jpg`}
-                          alt="company logo"
-                        />
                         <p className={styles.companyName}>
                           {post.company.name}
                         </p>
@@ -60,7 +55,7 @@ export default function Newsfeed() {
                   <p className={styles.jobInfo}>
                     {post.employment_type} - <span>{post.location_type}</span>
                   </p>
-                  <p className={styles.jobDescription}>{post.about}</p>
+                  <p className={"line-clamp-5 leading-relaxed"}>{post.about}</p>
                   <div className={styles.btnsContainer}>
                     <Link
                       href={`/job?job=${post.id}&company=${post.company.id}`}

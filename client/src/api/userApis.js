@@ -45,3 +45,20 @@ export const getHomeFeed = async () => {
     throw error.response.data;
   }
 };
+export const getSearch = async ({ title = null, location = null }) => {
+  const token = localStorage.getItem("token");
+  // console.log(query);
+  try {
+    const response = await axios.get(
+      `http://127.0.0.1:8000/job/search?title=${title}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw error.response.data;
+  }
+};

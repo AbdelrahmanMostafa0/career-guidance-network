@@ -3,6 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import TuneIcon from "@mui/icons-material/Tune";
 import SidePopUp from "../Sheet";
 import TitleSearch from "./TitleSearch";
+import { getSearch } from "@/api/userApis";
+import styles from "../../styles/newsfeed.module.css";
+// import { Link } from "lucide-react";
+import ReactTimeAgo from "react-time-ago";
+import Link from "next/link";
 
 const EMPLOYMENT_TYPE_CHOICES = [
   { value: "full_time", name: "Full-time" },
@@ -20,10 +25,20 @@ const LOCATION_TYPE_CHOICES = [
   { value: "hybrid", name: "Hybrid" },
 ];
 const UserSearch = () => {
+  const [searchJobs, setSearchJobs] = useState();
   const router = useRouter();
   useEffect(() => {
     console.log(router.query);
+    const query = router.query;
+    const fetchSearchData = async () => {
+      const data = await getSearch(query);
+      setSearchJobs(data);
+    };
+    if (query) {
+      fetchSearchData();
+    }
   }, [router]);
+  console.log(searchJobs);
 
   const [employmentType, setEmploymentType] = useState({
     name: null,
@@ -116,9 +131,51 @@ const UserSearch = () => {
           </button>
         </div>
         <div>
-          {" "}
-          UserSearch {router && router.query.titlename}{" "}
-          {router && router.query.title}
+          {searchJobs &&
+            searchJobs.map((post) => {
+              return (
+                <div className={styles.newsfeedContainer}>
+                  <div className={`${styles.feed} ${styles.flow}`}>
+                    <div className={styles.companyInfo}>
+                      <Link href={`/co/${post.company.id}`}>
+                        <div className={styles.InnerCompanyInfo}>
+                          <p className={styles.companyName}>
+                            {post.company.name}
+                          </p>
+                        </div>
+                      </Link>
+                      <p className={styles.time}>
+                        <ReactTimeAgo
+                          date={new Date(post.createdAt)}
+                          locale="en-US"
+                        />
+                      </p>
+                    </div>
+                    <h3 className={styles.jobTitle}>{post.title.name}</h3>
+                    <p className={styles.jobInfo}>
+                      {post.employment_type} - <span>{post.location_type}</span>
+                    </p>
+                    <p className={"line-clamp-5 leading-relaxed"}>
+                      {post.about}
+                    </p>
+                    <div className={styles.btnsContainer}>
+                      <Link
+                        href={`/job?job=${post.id}&company=${post.company.id}`}
+                        className={`${styles.btn} ${styles.detailsBtn}`}
+                      >
+                        Details
+                      </Link>
+                      <Link
+                        href={`/job?job=${post.id}&company=${post.company.id}`}
+                        className={`${styles.btn} ${styles.applyBtn}`}
+                      >
+                        Apply
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </main>
