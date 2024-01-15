@@ -1,5 +1,4 @@
 .mainContainer {
-    min-height: 60vh;
     padding: 1em;
     display: flex;
     flex-direction: column;
@@ -13,13 +12,9 @@
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 1em;
-    display: flex;
-    flex-direction: column;
 }
 
 .roadmapsContainer {
-    /* border: 1px solid magenta; */
-    /* padding: 2em 0; */
     display: grid;
     justify-items: center;
     width: 90%;

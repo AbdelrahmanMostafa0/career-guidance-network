@@ -11,20 +11,19 @@ import {
 
 
 export default function Roadmaps () {
+  const QUERY_STRINGS = ["frontend", "backend", "full stack", "devops", "android", 
+                        "ASP.NET Core", "cyber Security", "game developer", "ux design", "react native" ]
+  
   return (
     <RoadmapsContainer className={styles.mainContainer}>
       <h1>Developer Roadmaps</h1>
       <div className={styles.roadmapsContainer}>
-        <Link href="#" className={styles.roadmap}><div><p>Frontend</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>Backend</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>Full Stack</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>DevOps</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>Android</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>ASP.NET Core</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>Cyber Security</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>Game DEveloper</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>Ux Design</p></div></Link>
-        <Link href="#" className={styles.roadmap}><div><p>React Native</p></div></Link>
+        {QUERY_STRINGS.map(query => {
+          const captalizedQuery = query[0].toUpperCase() + query.slice(1)
+          return (
+            <Link href={`roadmaps/path?roadmap=${query}`} className={styles.roadmap}><p>{captalizedQuery}</p></Link>
+          )
+        })}
       </div>
     </RoadmapsContainer>
   )
