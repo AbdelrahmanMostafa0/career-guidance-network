@@ -69,4 +69,8 @@
     .roadmap {
         padding: 2em;
     }
+
+    .accordionTrigger {
+        font-size: 2.5rem;
+    }
 }

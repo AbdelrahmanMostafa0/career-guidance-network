@@ -27,15 +27,15 @@ export default function Path () {
     return (
         <main className={styles.mainContainer}>
             <h1>{headerState} Roadmap</h1>
-            <p>This Roadmap will turn you into a hireable developer, and teach you how to nail the job interview. It contains over 70 hours of top-notch tutorials, hundreds of coding challenges, and dozens of real-world projects.</p>
+            <p className={styles.subTitle}>This Roadmap will turn you into a hireable developer, and teach you how to nail the job interview. It contains over 70 hours of top-notch tutorials, hundreds of coding challenges, and dozens of real-world projects.</p>
             <div className={styles.AccordionContainer}>
             <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
-                    <AccordionTrigger className={styles.red}>Beginner</AccordionTrigger>
+                    <AccordionTrigger className={styles.accordionTrigger}>Beginner</AccordionTrigger>
                     <AccordionContent>
                         {chosenRoadmapState && roadmapMaterials[chosenRoadmapState].beginner.map(step => {
                             return (
-                                <Link href={`${step[1]}`}><p>{step[0]}</p></Link>
+                                <Link className={styles.link} href={`${step[1]}`}><p>{step[0]}</p></Link>
                             )
                         })}
                     </AccordionContent>
@@ -44,11 +44,11 @@ export default function Path () {
 
             <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
-                    <AccordionTrigger>Intermediate</AccordionTrigger>
+                    <AccordionTrigger className={styles.accordionTrigger}>Intermediate</AccordionTrigger>
                     <AccordionContent>
                         {chosenRoadmapState && roadmapMaterials[chosenRoadmapState].beginner.map(step => {
                             return (
-                                <Link href={`${step[1]}`}><p>{step[0]}</p></Link>
+                                <Link className={styles.link} href={`${step[1]}`}><p>{step[0]}</p></Link>
                             )
                         })}
                     </AccordionContent>
@@ -57,51 +57,16 @@ export default function Path () {
 
             <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
-                    <AccordionTrigger>Advanced</AccordionTrigger>
+                    <AccordionTrigger className={styles.accordionTrigger}>Advanced</AccordionTrigger>
                     <AccordionContent>
                         {chosenRoadmapState && roadmapMaterials[chosenRoadmapState].intermediate.map(step => {
                                 return (
-                                    <Link href={`${step[1]}`}><p>{step}</p></Link>
+                                    <Link className={styles.link} href={`${step[1]}`}><p>{step}</p></Link>
                                 )
                         })}
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
-
-            {/* <Accordion type="single" collapsible>
-                <AccordionItem value="item-1">
-                    <AccordionTrigger>{header} Career Path</AccordionTrigger>
-                    <AccordionContent>
-                        <Accordion type="single" collapsible>
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger>Beginner</AccordionTrigger>
-                                <AccordionContent>
-                                    <Link href ="https://www.w3schools.com/html/html_intro.asp">W3Schools: Learn HTML</Link>
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-
-                        <Accordion type="single" collapsible>
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger>Intermediate</AccordionTrigger>
-                                <AccordionContent>
-                                Yes. It adheres to the WAI-ARIA design pattern.
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-
-                        <Accordion type="single" collapsible>
-                            <AccordionItem value="item-1">
-                                <AccordionTrigger>Advanced</AccordionTrigger>
-                                <AccordionContent>
-                                Yes. It adheres to the WAI-ARIA design pattern.
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-
-                    </AccordionContent>
-                </AccordionItem>
-            </Accordion> */}
             </div>
         </main>
     )

@@ -14,8 +14,8 @@
     margin-bottom: 1em;
 }
 
-.mainContainer p {
-    max-width: 40ch;
+.subTitle {
+    max-width:40ch;
     text-align: center;
     letter-spacing: 1px;
 }
@@ -23,10 +23,43 @@
 .AccordionContainer {
     width: 100%;
     max-width: 600px;
-    margin: 3em 0;
+    margin: 5em 0;
 }
 
-.AccordionContainer p {
-    text-align: left;
+.subTitle {
+    text-align: center;
     margin-bottom: 1.2em;
+}
+
+.link {
+    display: block;
+    margin: 1em;
+    line-height: 1.5em;
+}
+
+@media(min-width: 850px) {
+    .mainContainer {
+        padding: 3em;
+    }
+
+    .mainContainer h1 {
+        font-size: 3rem;
+    }
+
+    .subTitle {
+        font-size: 1.2rem;
+    }
+
+    .accordionTrigger {
+        font-size: 1.5rem;
+    }
+
+    .AccordionContainer {
+        max-width: 1100px;
+    }
+
+    .link {
+        margin: 1em;
+        font-size: 1.2rem;
+    }
 }
