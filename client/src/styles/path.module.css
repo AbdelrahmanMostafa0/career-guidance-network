@@ -1,0 +1,68 @@
+.mainContainer {
+    padding: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mainContainer h1 {
+    text-align: center;
+    color: #6FCE99;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: .3em;
+}
+
+.subTitle {
+    max-width:40ch;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: .9rem;
+}
+
+.AccordionContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 2em 0;
+}
+
+.accordionTrigger {
+    color: #6FCE99;
+    font-weight: bold;
+}
+
+.link {
+    display: block;
+    margin: 1em;
+    line-height: 1.7em;
+    text-decoration: underline;
+}
+
+@media(min-width: 850px) {
+    .mainContainer {
+        padding: 3em;
+    }
+
+    .mainContainer h1 {
+        font-size: 3rem;
+    }
+
+    .subTitle {
+        font-size: 1.2rem;
+    }
+
+    .accordionTrigger {
+        font-size: 1.5rem;
+    }
+
+    .AccordionContainer {
+        max-width: 900px;
+        margin: 4em;
+    }
+
+    .link {
+        margin: 1em;
+        font-size: 1.2rem;
+    }
+}

@@ -68,7 +68,11 @@ const AboutMe = () => {
       throw error.response;
     }
   };
-  const displayedAbout = data.about.substring(0, 150);
+  const displayedAbout =
+    "Frontend Developer with a passion for creating intuitive and visually appealing user interfaces. Proficient in modern web technologies, including HTML, CSS, and JavaScript, with a keen eye for design and usability. Proven track record of delivering high-quality, responsive web applications. Strong collaboration and problem-solving skills, dedicated to staying current with industry trends and best practices. Eager to contribute creativity and technical expertise to dynamic development teams".substring(
+      0,
+      150
+    );
   const showMoreAbout = data.about.length > 150;
   return (
     <ExtraDataContainer className={"md:w-7/12"}>
@@ -110,7 +114,11 @@ const AboutMe = () => {
               </div>
             }
           >
-            <p className="leading-loose">{data.about}</p>
+            <p className="leading-loose">
+              {
+                " Frontend Developer with a passion for creating intuitive and visually appealing user interfaces. Proficient in modern web technologies, including HTML, CSS, and JavaScript, with a keen eye for design and usability. Proven track record of delivering high-quality, responsive web applications. Strong collaboration and problem-solving skills, dedicated to staying current with industry trends and best practices. Eager to contribute creativity and technical expertise to dynamic development teams"
+              }
+            </p>
           </Modal>
         </div>
       )}
