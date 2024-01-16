@@ -9,16 +9,15 @@ export const applayForJob = createAsyncThunk(
   "jobApplaySlice/applayForJob",
   async ({ appData, jobId }) => {
     console.log(appData);
-    const formData = new FormData();
-    formData.append("cvFile", appData);
+
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/application/apply/${jobId}`,
-        formData,
+        `${process.env.NEXT_PUBLIC_API_URL}/application/apply/${jobId}/`,
+        appData,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json", // Specify content type as JSON
+            "Content-Type": "multipart/form-data",
           },
         }
       );

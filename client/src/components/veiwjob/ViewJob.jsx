@@ -5,7 +5,7 @@ import styles from "../../styles/viewjob.module.css";
 import Modal from "@/shared/Modal";
 import ApplayForm from "./ApplayForm";
 
-export default function ViewJob({ jobData }) {
+export default function ViewJob({ jobData, apply = true }) {
   return (
     <div className={styles.container}>
       <header className={`${styles.header} ${styles.flow}`}>
@@ -13,7 +13,7 @@ export default function ViewJob({ jobData }) {
           <div className={`${styles.companyInfo} ${styles.flow}`}>
             <img
               className={"h-52 mx-auto md:mx-0 w-52 rounded-full object-cover "}
-              src="companylogo.png"
+              src={jobData.company.imgUrl || "/avatar.jpg"}
               alt="company logo"
             />
             <h1>{jobData?.company?.name}</h1>
@@ -41,16 +41,19 @@ export default function ViewJob({ jobData }) {
             </div>
           </div>
         </div>
-        <div className="flex justify-center md:justify-end items-end">
-          <Modal
-            openBtn={
-              <span className="bg-lightGreen text-white px-6 py-2 rounded-md cursor-pointer">
-                apply
-              </span>
-            }
-          >
-            <ApplayForm jobData={jobData} />
-          </Modal>
+        <div className="flex md:flex-row flex-col justify-center md:justify-end md:items-end gap-2">
+          <p>{jobData.numberOfApplicants} applied</p>
+          {apply && (
+            <Modal
+              openBtn={
+                <span className="bg-lightGreen text-white px-6 py-2 rounded-md cursor-pointer">
+                  apply
+                </span>
+              }
+            >
+              <ApplayForm jobData={jobData} />
+            </Modal>
+          )}
         </div>
       </header>
       <main className={`${styles.mainContainer} ${styles.flow}`}>
@@ -83,18 +86,20 @@ export default function ViewJob({ jobData }) {
             })}
           </div>
         </section>
-        <section className={`${styles.suggestedRoadmapSection}`}>
-          <h2>Suggested Roadmap</h2>
-          <Link href="#">
-            <div className={styles.suggestedRoadmap}>
-              <h3>Front End Roadmap</h3>
-              <p>
-                pharetra. Adipiscing mauris ornare quis vitae et semper mollis
-                eget{" "}
-              </p>
-            </div>
-          </Link>
-        </section>
+        {apply && (
+          <section className={`${styles.suggestedRoadmapSection}`}>
+            <h2>Suggested Roadmap</h2>
+            <Link href="#">
+              <div className={styles.suggestedRoadmap}>
+                <h3>Front End Roadmap</h3>
+                <p>
+                  pharetra. Adipiscing mauris ornare quis vitae et semper mollis
+                  eget{" "}
+                </p>
+              </div>
+            </Link>
+          </section>
+        )}
         <section className={styles.similarJobsSections}></section>
       </main>
     </div>
