@@ -58,14 +58,11 @@ const SideBar = ({ openBtn }) => {
           <Link href={"/"} className="w-full py-2 border rounded-full text-xl">
             Home
           </Link>
-          <Link href={"/"} className="w-full py-2 border rounded-full text-xl">
+          <Link href={"/roadmaps"} className="w-full py-2 border rounded-full text-xl">
             Roadmaps
           </Link>
-          <Link href={"/"} className="w-full py-2 border rounded-full text-xl">
+          <Link href={"/about"} className="w-full py-2 border rounded-full text-xl">
             About
-          </Link>
-          <Link href={"/"} className="w-full py-2 border rounded-full text-xl">
-            Contact Us
           </Link>
         </div>
       </SheetContent>
