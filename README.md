@@ -28,7 +28,7 @@ Whether you're just starting out, switching careers, or aiming to grow in your c
 
 Watch a demo of the Career Guidance Network platform here:
 
-[![Career Guidance Network Demo](https://img.youtube.com/vi/WNgjbvaiHbk/0.jpg)](https://www.youtube.com/watch?v=WNgjbvaiHbk)
+[![Career Guidance Network Demo](https://cdn.discordapp.com/attachments/1057322504160550933/1373385524919926925/image.png?ex=682a3871&is=6828e6f1&hm=098aa2de00bf3aa1fe0f9a492114b427c34b636ae9c379279a805f102fe1441e&)](https://www.youtube.com/watch?v=WNgjbvaiHbk)
 
 ---
 
