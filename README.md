@@ -56,7 +56,7 @@ git clone https://github.com/AbdelrahmanMostafa0/career-guidance-network
 2. **Navigate to the Project Directory**
 
 ```bash
-cd career-guidance-network
+cd career-guidance-network/client
 ```
 
 3. **Install Dependencies**
